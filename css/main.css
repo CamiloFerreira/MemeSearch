@@ -1,0 +1,111 @@
+@font-face
+			{
+				font-family: "hola";
+				src:url("fuente/hola.ttf");
+			}
+		body
+			{
+				background-color: #A4A4A4;
+				margin:0;
+				width: 100%;
+				height: 1000px;
+			}
+			header
+			{
+                
+  				width: 100%;
+				height:20%;
+				background-image: url(img/baner.jpg);
+				background-repeat: no-repeat;
+				background-color: #27ae60;
+			} 
+				
+			nav
+			{
+                               
+                background-color: #333;
+				width: 100%;
+				height:5% ;	
+			}
+			section 
+			{
+				position: absolute;
+				background-color: #A4A4A4;
+				width: 100%;
+				height: 70%;
+			}
+			aside
+				{
+				position:absolute;
+				background-color:green;
+				width: 200px;
+				height: 700px;
+				margin-left: 1200px;
+				margin-bottom: 100px;
+				}
+			footer
+			{	
+				text-align: center;
+				color :white;
+				background-color:#333;
+				width: 100%;
+				height: 10%;
+			}
+			p
+			{
+				position: relative;
+			}
+			ul 
+			{
+
+    			list-style-type: none;
+    			margin:0px 0px 0px 200px ;
+    			padding: 0;
+    			overflow: hidden;
+    			background-color: #333;
+			}
+			li 
+			{
+    			float: left;
+			}			
+
+			li a 
+			{
+    			display: block;
+    			color:#58FAD0;
+    			text-align: center;
+    			padding: 14px 16px;
+    			font-family: fantasy;
+    			text-decoration: none;
+			}
+			li a:hover
+			{
+    			background-color: #111;
+			}
+			h1	
+			{
+				position: absolute;
+				color: #61380B;
+				margin-top: 0px;
+				padding-top: 50px;
+				margin-left: 400px;
+				font-family: hola;
+				font-size: 50px;
+			}
+			.activa
+			{
+				background-color: #000000;
+			}
+			p
+			{
+				font-family: b;
+				font-size: 20px;
+				margin: 0;
+			}	
+			h5
+			{
+				
+				font-size: 20px;
+				margin: 0;
+			}	
+			
