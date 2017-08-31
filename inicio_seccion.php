@@ -41,13 +41,13 @@
 			</header>
 			<nav>
 			<ul>
-	  			<li><a class="activa" href="index.html"> Pagina Principal</a></li>
+	  			<li><a  href="index.html"> Pagina Principal</a></li>
 	  			<li><a href="gal.html">Galeria</a></li>
-	  			<li><a href="inicio_seccion.php"> Inicio Seccion </a></li>
+	  			<li><a class="activa" href="inicio_seccion.php"> Inicio Seccion </a></li>
 			</ul>
 			</nav>
 			<section >
-			<h2 style="text-align:left;">Mejores Memes</h2>
+			<h2 style="text-align:left;">Login</h2>
 			<p> </p>
 			</section>
 		</body>
