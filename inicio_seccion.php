@@ -50,5 +50,8 @@
 			<h2 style="text-align:left;">Login</h2>
 			<p> </p>
 			</section>
+            <aside id="aside_1">
+                TOP
+            </aside>
 		</body>
 	</html>
