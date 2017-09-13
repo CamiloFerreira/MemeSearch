@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-09-2017 a las 03:18:37
+-- Tiempo de generación: 13-09-2017 a las 03:38:04
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -41,7 +41,20 @@ CREATE TABLE `imagenes` (
 CREATE TABLE `puntuacion` (
   `id_imagen` int(10) DEFAULT NULL,
   `votacion_p` int(100) DEFAULT NULL,
-  `votacion_n` int(100) DEFAULT NULL
+  `votacion_n` int(100) DEFAULT NULL,
+  `hora_votacion` int(10) NOT NULL,
+  `fecha_votacion` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `rel_usuarios_imagenes`
+--
+
+CREATE TABLE `rel_usuarios_imagenes` (
+  `idusuario` int(11) NOT NULL,
+  `id_imagen` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -53,18 +66,8 @@ CREATE TABLE `puntuacion` (
 CREATE TABLE `usuarios` (
   `idusuario` int(11) NOT NULL,
   `usuario` varchar(20) DEFAULT NULL,
-  `clave` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `votos`
---
-
-CREATE TABLE `votos` (
-  `id_imagen` int(10) NOT NULL,
-  `idusuario` int(10) NOT NULL
+  `clave` varchar(20) DEFAULT NULL,
+  `correo` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -84,17 +87,17 @@ ALTER TABLE `puntuacion`
   ADD KEY `id_imagen` (`id_imagen`);
 
 --
+-- Indices de la tabla `rel_usuarios_imagenes`
+--
+ALTER TABLE `rel_usuarios_imagenes`
+  ADD KEY `idusuario` (`idusuario`),
+  ADD KEY `id_imagen` (`id_imagen`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`idusuario`);
-
---
--- Indices de la tabla `votos`
---
-ALTER TABLE `votos`
-  ADD PRIMARY KEY (`idusuario`,`id_imagen`),
-  ADD KEY `id_imagen` (`id_imagen`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -121,11 +124,11 @@ ALTER TABLE `puntuacion`
   ADD CONSTRAINT `puntuacion_ibfk_1` FOREIGN KEY (`id_imagen`) REFERENCES `imagenes` (`id_imagen`);
 
 --
--- Filtros para la tabla `votos`
+-- Filtros para la tabla `rel_usuarios_imagenes`
 --
-ALTER TABLE `votos`
-  ADD CONSTRAINT `votos_ibfk_1` FOREIGN KEY (`id_imagen`) REFERENCES `imagenes` (`id_imagen`),
-  ADD CONSTRAINT `votos_ibfk_2` FOREIGN KEY (`idusuario`) REFERENCES `usuarios` (`idusuario`);
+ALTER TABLE `rel_usuarios_imagenes`
+  ADD CONSTRAINT `rel_usuarios_imagenes_ibfk_1` FOREIGN KEY (`idusuario`) REFERENCES `usuarios` (`idusuario`),
+  ADD CONSTRAINT `rel_usuarios_imagenes_ibfk_2` FOREIGN KEY (`id_imagen`) REFERENCES `imagenes` (`id_imagen`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
