@@ -7,16 +7,16 @@
     <link rel="stylesheet" type="text/css" href="css/main_registrarse.css">
     <body>
 
-        <form>
+        <form action="conexion.php" method="get" >
             <h1> Registrarse </h1>
             Usuario: <br>
-            <input type="text" id="usuario" ><br>
+            <input type="text" id="usuario" name="usuarios" /><br>
             Clave: <br>
-            <input type="password" id="clave"><br>
+            <input type="password" id="clave" name="clave" /><br>
             Correo: <br>
-            <input type="email" id="coreo" > <br>
+            <input type="email" id="coreo" name="correo" /> <br>
             <br>
-            <input type="submit" name="enviar">
+            <input type="submit" name="enviar" />
             
         </form>
 
