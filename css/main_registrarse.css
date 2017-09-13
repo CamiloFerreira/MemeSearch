@@ -1,0 +1,27 @@
+    body
+        {
+            background: url(../img/fondo.jpg);
+            
+            
+            
+        }
+    	form
+		{
+			border: 2px solid white;
+			position: absolute;
+			padding-bottom: 5%;
+			padding-left: 10%;
+			padding-right: 10%;
+			background-color:chartreuse;
+			color:black;
+			margin-left: 30%;
+			margin-right: 10%;
+			margin-top: 5%;
+			font-family: fantasy;
+			
+		}
+		input
+		{
+			border-bottom-color: black;
+			color: black;
+		}

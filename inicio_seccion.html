@@ -21,7 +21,7 @@
 		
 		letter-spacing: 1px;
 		text-decoration: underline;
-		margin-left: 200px;
+        margin-left: 100px;
 	}
 	p
 	{
@@ -31,7 +31,27 @@
 		font-style: fantasy;	
 
 	}
-
+        form
+		{
+			border: 2px solid white;
+			padding-bottom: 5%;
+			padding-left: 10%;
+			padding-right: 10%;
+			background-color:chartreuse;
+			color:black;
+			margin-left: 15%;
+			margin-right: 40%;
+			margin-top: 5%;
+			font-family: fantasy;
+            font-size: 22px;
+			
+		}
+		input
+		{
+			border-bottom-color: black;
+			color: black;
+		}
+    
 	</style>
 	<title>Meme Search</title>
 	</head> 
@@ -47,11 +67,22 @@
 			</ul>
 			</nav>
 			<section >
-			<h2 style="text-align:left;">Login</h2>
+			
 			<p> </p>
+            <!--- Creacion de El Login -->
+                <form>
+                    <h2>Login</h2>
+                    Usuario:<br>
+                    <input type="text" id="usuario" > <br>
+                    Clave:<br>
+                    <input type="password" id="clave"> <br>
+                    <br>
+                    <input type="submit" name="Enviar">
+                </form><br>
+                <p> Se Olvido de Su contraseña </p> <br>
+                <p><a target="_blank" href="registrarse.html" > Registrarse</a> </p>
 			</section>
-            <aside id="aside_1">
-                TOP
-            </aside>
+        
+
 		</body>
 	</html>
