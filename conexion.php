@@ -14,7 +14,7 @@
 		 
 	 }
  }
- $usuario = $_GET['usuarios'];
+ $usuario = $_GET['usuario'];
  $clave   = $_GET['clave'];
  $correo  = $_GET['correo'];
  //Hacer la sentencia de sql
@@ -29,7 +29,7 @@
  }
  else
  {
-	 echo "Datos Guardados Correctamente <br> <a href='inicio_seccion.html'>Volver </a> ";
+	 header('Location: inicio_seccion.html');
  }
 
 
