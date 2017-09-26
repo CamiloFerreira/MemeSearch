@@ -6,19 +6,17 @@
     <!---- Estilos de esta pagina --->
     <link rel="stylesheet" type="text/css" href="css/main_registrarse.css">
     <body>
-
-        <form action="conexion.php" method="get" >
+        <form onsubmit="validaForm()" method="get" action="conexion.php" >
             <h1> Registrarse </h1>
             Usuario: <br>
-            <input type="text" id="usuario" name="usuarios" /><br>
+            <input type="text" id="usuario" name="usuario" /><br>
             Clave: <br>
             <input type="password" id="clave" name="clave" /><br>
             Correo: <br>
-            <input type="email" id="coreo" name="correo" /> <br>
+            <input type="text" id="correo" name="correo" /> <br>
             <br>
-            <input type="submit" name="enviar" />
-            
+            <input type="submit" name="enviar" />  
         </form>
-
+        <script type="text/javascript" src="js/java.js"></script>
     </body>
 </html>
