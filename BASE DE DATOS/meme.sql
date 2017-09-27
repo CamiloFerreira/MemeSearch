@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-09-2017 a las 03:38:04
+-- Tiempo de generación: 27-09-2017 a las 16:23:35
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `imagenes` (
   `id_imagen` int(20) NOT NULL,
-  `foto` varchar(20) DEFAULT NULL,
+  `imagen` varchar(200) DEFAULT NULL,
   `nombre` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -66,9 +66,20 @@ CREATE TABLE `rel_usuarios_imagenes` (
 CREATE TABLE `usuarios` (
   `idusuario` int(11) NOT NULL,
   `usuario` varchar(20) DEFAULT NULL,
+  `nombre` varchar(30) DEFAULT NULL,
+  `apellido` varchar(30) DEFAULT NULL,
   `clave` varchar(20) DEFAULT NULL,
   `correo` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`idusuario`, `usuario`, `nombre`, `apellido`, `clave`, `correo`) VALUES
+(1, 'assdasd', NULL, NULL, 'asdasd', 'asdasd'),
+(2, 'fererasrr', NULL, NULL, '123345367', 'asda@asdasd.cl'),
+(3, 'asdasdasdd', 'aasdasd', 'asdasd', '1231442353', 'asda@asdasd.cl');
 
 --
 -- Índices para tablas volcadas
@@ -112,7 +123,7 @@ ALTER TABLE `imagenes`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Restricciones para tablas volcadas
 --
