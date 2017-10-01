@@ -17,10 +17,14 @@
  $usuario = $_GET['usuario'];
  $clave   = $_GET['clave'];
  $correo  = $_GET['correo'];
+ $nombre  = $_GET['nombre'];
+ $apellido = $_GET['apellido'];
  //Hacer la sentencia de sql
- $sql = "INSERT INTO usuarios (clave,usuario,correo) VALUES ('$clave',
+ $sql = "INSERT INTO usuarios (clave,usuario,correo,nombre,apellido) VALUES ('$clave',
  													  '$usuario',
-                                                      '$correo')";
+                                                      '$correo',
+                                                      '$nombre',
+                                                      '$apellido')";
  //Ejecutar sentencia sql
  $ejecutar =mysqli_query($conn,$sql);
  if (!$ejecutar)
