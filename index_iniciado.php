@@ -1,4 +1,8 @@
-	<!DOCTYPE html>
+<?php 
+        session_start();
+        $usuario =$_SESSION["usuario"];
+?>
+<!DOCTYPE html>
 	<html lang="es">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,17 +48,15 @@
 			<ul>
 	  			<li><a class="activa" href="index.html"> Página Principal</a></li>
 	  			<li><a href="gal.html">Galería</a></li>
-	  			<li><a href="inicio_seccion.html"> Inicio Sesión </a></li>
+               <li><a> Bienvenido </a></li>
 			</ul>
 			</nav>
 			<section >
 			<h2 style="text-align:left;">MEJORES MEMES</h2>
 			<p> </p>
 			</section >
-                
             <aside id="aside_1">
                 TOP
             </aside>
-        
 		</body>
 	</html>
