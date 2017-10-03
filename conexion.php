@@ -14,11 +14,19 @@
 		 
 	 }
  }
- $usuario = $_GET['usuario'];
- $clave   = $_GET['clave'];
- $correo  = $_GET['correo'];
- $nombre  = $_GET['nombre'];
- $apellido = $_GET['apellido'];
+$usuario = $_GET['usuario'];
+$clave   = $_GET['clave'];
+$correo  = $_GET['correo'];
+$nombre  = $_GET['nombre'];
+$apellido = $_GET['apellido'];
+
+if ($usuario == null or $clave == null or $correo == null or $nombre== null or $apellido== null )
+{
+    header('Location: registrarse.html');
+}
+else{
+
+ 
  //Hacer la sentencia de sql
  $sql = "INSERT INTO usuarios (clave,usuario,correo,nombre,apellido) VALUES ('$clave',
  													  '$usuario',
@@ -36,5 +44,5 @@
 	 header('Location: inicio_seccion.html');
  }
 
-
+}
 ?>

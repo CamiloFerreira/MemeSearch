@@ -16,20 +16,36 @@ function validarPass(cadena) {
 }
 
 function validarUsuario(cadena) {
-    if (cadena.length >=8 ) {
+    if (cadena.length >=1 ) {
         return true;
     } else {
-       alert("falta llenar y/o no se ingreso url");
+       alert("Campos Vacios de Usuario");
     }
 }
 
-
-
+function redireccionar(){window.location="../conexion.php";} 
+           
+function validarNombre(cadena) {
+    if (cadena.length >=1 ) {
+        return true;
+    } else {
+       alert("Campos Vacios de Nombre");
+    }
+}
+function validarApellido(cadena) {
+    if (cadena.length >=1 ) {
+        return true;
+    } else {
+       alert("Campos Vacios de Apellido");
+    }
+}
 
 function validaForm() {
     var email = document.getElementById("correo").value;
     var pass = document.getElementById("clave").value;
     var usuario = document.getElementById("usuario").value;
+    var nombre = document.getElementById("nombre").value;
+    var apellido = document.getElementById("apellido").value;
     if (!validarEmail(email)){
         email.focus();
         return false;
@@ -39,11 +55,13 @@ function validaForm() {
     } else if(!validarUsuario(usuario)){
         usuario.focus();
         return false;
-    } else {
-        alert("Guardando...")
-        function redireccionar(){window.location="conexion.php";} 
-            setTimeout ("redireccionar()", 5000);
-    }
-   
-    
+    } else if(!validarNombre(nombre)){
+        nombre.focus();
+        return false;
+    }else if(!validarApellido(apellido)){
+        apellido.focus();
+        return false;
+    }else {
+        alert("Guardando...");
+    }    
 }

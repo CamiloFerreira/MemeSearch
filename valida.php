@@ -1,4 +1,7 @@
 <?php
+
+header('Location: /js/java.js');
+
 $conn = mysqli_connect('localhost','root','');
  if (!$conn)
  {
@@ -19,6 +22,14 @@ session_start();
 $clave=$_GET["clave"];
 $usuario=$_GET["usuario"];
 
+if ($usuario == null or $clave == null)
+{
+    
+   header('Location: inicio_seccion.html'); 
+}
+else
+{
+
 $sql = "SELECT usuario FROM usuarios WHERE usuario = '$usuario' ";
 $sql2= "SELECT usuario FROM usuarios WHERE clave ='$clave' " ;
 
@@ -36,17 +47,8 @@ if (!$ejecutar)
    if ($usuario == $usuarioC[0] and $clave == $claveC[0])
 	{
 		$_SESSION["estado"]=1;
-        
+        header('Location: index_iniciado.php');
 	}      
-if ($_SESSION["estado"]==1)
-    {
-       $_SESSION["usuario"]=$usuarioC;
-       header('Location: index_iniciado.php');
-       echo "Correcto";
-    }
-     else 
-    {
-       header('Location: inicio_seccion.php');
-    }
+ }
  }
 ?>

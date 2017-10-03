@@ -8,8 +8,6 @@
 	<link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet"> 
 	<link href="img\MS.png" rel="shortcut icon" type="image/png">
 	<style type="text/css">
-
-
 	@font-face
 	{
 		font-family: "hola";
@@ -54,7 +52,10 @@
 			border-bottom-color: black;
 			color: black;
 		}
-    
+        #p
+        {
+            color : black;
+        }
 	</style>
 	<title>Meme Search</title>
 	</head> 
@@ -73,7 +74,7 @@
 			
 			<p> </p>
             <!--- Creacion de El Login -->
-                <form action="valida.php" method="get">
+                <form action="valida.php" method="get" >
                     <h2>LOGIN</h2>
                     Usuario:<br>
                     <input type="text" id="usuario" > <br>
@@ -83,9 +84,8 @@
                     <input type="submit" name="Enviar">
                 </form><br>
                 <p> Se Olvido de Su contraseña </p> <br>
-                <p><a target="_blank" href="registrarse.html" > Registrarse</a> </p>
+                <p ><a id="p" target="_blank" href="registrarse.html" > Registrarse</a> </p>
+                <script type="text/javascript" src="js/java2.js"></script>
 			</section>
-        
-
 		</body>
 	</html>
