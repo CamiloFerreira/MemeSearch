@@ -22,7 +22,7 @@ $apellido = $_GET['apellido'];
 
 if ($usuario == null or $clave == null or $correo == null or $nombre== null or $apellido== null )
 {
-    header('Location: registrarse.html');
+    header('Location: registrarse.php');
 }
 else{
 
@@ -41,7 +41,7 @@ else{
  }
  else
  {
-	 header('Location: inicio_seccion.html');
+	 header('Location: inicio_seccion.php');
  }
 
 }

@@ -1,125 +1,138 @@
+#MANTENER ORDEN EN CSS , PONER SIEMPRE PUNTO Y COMA , TAMANOS CON % NO PIXELES
+
 @font-face
-			{
-				font-family: "hola";
-				src:url("fuente/hola.ttf");
-			}
-		body
-			{
-				display: block;
-				margin: auto;
-				background-image: url(../img/fm.jpg);
-				width: 100%;
-				height: 1000px;
-			}
-			header
-			{
-                display: block;
-				margin: auto;
-  				width: 100%;
-				height:20%;
-				background-image: url(../img/bannerasd.jpg);
-				background-repeat: repeat-x;
-
-			} 
-				
-			nav
-			{
+{
+	font-family: "hola";
+	src:url("fuente/hola.ttf");
+}
+body
+{
+	display: block;
+	margin: auto;
+	background-image: url(../img/fm.jpg);
+	width: 100%;
+	height: 1000px;
+}
+header
+{
+    display: block;
+	margin: auto;
+  	width: 100%;
+	height:20%;
+	background-image: url(../img/bannerasd.jpg);
+	background-repeat: repeat-x;
+}
+nav
+{
                                
-                background-color: #333;
-				width: 100%;
-				height:5% ;	
-				font-family: "Bangers", cursive;
-			}
-			section 
-			{
-				position: absolute;
-				background-image: url(../img/blanco.jpg);
-				width: 65%;
-				margin: 30px;
+    background-color: #333;
+	width: 100%;
+	height:5% ;	
+	font-family: "Bangers", cursive;
+}
+section 
+{
+	position: absolute;
+	background-image: url(../img/blanco.jpg);
+	width: 65%;
+	margin: 30%;
 				
-			}
-			#aside_1
-				{
-				position:absolute;
-				background-image: url(../img/fondoaside.jpg);
-				width: 15%;
-				height: 100%;
-				margin-left: 70%;
-				color: white;
-				}
+}
+#aside_1
+{
+	position:absolute;
+	background-image: url(../img/fondoaside.jpg);
+	width: 15%;
+	height: 100%;
+	margin-left: 70%;
+	color: white;
+}
          
-			footer
-			{	
-				text-align: center;
-				color :white;
-				background-color:#333;
-				width: 100%;
-				height: 10%;
-			}
-			p
-			{
-				position: relative;
-			}
-			ul 
-			{
+footer
+{	
+	text-align: center;
+	color :white;
+	background-color:#333;
+	width: 100%;
+	height: 10%;
+}
+p
+{
+	position: relative;
+}
+ul 
+{
 
-    			list-style-type: none;
-    			margin:0px 0px 0px 200px ;
-    			padding: 0;
-    			overflow: hidden;
-    			background-color: #333;
-    			font-family: 'Bangers', cursive;
-			}
-			li 
-			{
-    			float: left;
-			}			
+    list-style-type: none;
+    margin:0 0 0 30% ;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    font-family: 'Bangers', cursive;
+}
+li 
+{
+    float: left;
+}			
 
-			li a 
-			{
-    			display: block;
-    			color:#58FAD0;
-    			text-align: center;
-    			padding: 14px 16px;
-    			font-family: fantasy;
-    			text-decoration: none;
-			}
-			li a:hover
-			{
-    			background-color: #111;
-			}
-			h1	
-			{
-				position: absolute;
-				color: #61380B;
-				margin-top: 0px;
-				padding-top: 50px;
-				margin-left: 400px;
-				
-				font-size: 50px;
-			}
-			.activa
-			{
-				background-color: #000000;
-			}
-			p
-			{
-				font-family: b;
-				font-size: 20px;
-				margin: 0;
-			}	
-			h5
-			{
-				
-				font-size: 20px;
-				margin: 0;
-			}	
-			A:link {color: white; font-size: 10pt; font-family: 'Bangers', serif; text-decoration: none }
-            A:hover {color: white; font-size: 15pt; font-family: 'Bangers', serif; text-decoration: none }
-            A:visited {color: white; font-size: 10pt; font-family: 'Bangers', serif; text-decoration: none }
-				button:hover {
-				 background: rgba(0,0,0,0);
-				 color: #3a7999;
-				 box-shadow: inset 0 0 0 3px #0046ff;
-				}
-	
+li a 
+{
+   display: block;
+   color:#58FAD0;
+   text-align: center;
+   padding: 14px 16px;
+   font-family: fantasy;
+   text-decoration: none;
+}
+li a:hover
+{
+   background-color: #111;
+}
+h1	
+{
+   position: absolute;
+   color: #61380B;
+   margin-top: 0;
+   padding-top: 20%;
+   margin-left: 40%;			
+   font-size: 50px;
+}
+.activa
+{
+   background-color: #000000;
+}
+p
+{
+	 font-family: b;
+	 font-size: 20px;
+	 margin: 0;
+}	
+h5
+{
+	font-size: 20px;
+	margin: 0;
+}	
+A:link 
+{
+	color: black; font-size: 10pt; font-family: 'Bangers', serif; text-decoration: none
+}
+A:hover 
+{
+	color: white; 
+    font-size: 15pt; 
+    font-family: 'Bangers', serif; 
+    text-decoration: none ;
+}
+A:visited 
+{
+    color: white; 
+    font-size: 10pt;
+    font-family: 'Bangers', serif; 
+    text-decoration: none;
+}
+button:hover 
+{
+    background: rgba(0,0,0,0);
+    color: #3a7999;
+    box-shadow: inset 0 0 0 3px #0046ff;
+}

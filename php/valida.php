@@ -25,7 +25,7 @@ $usuario=$_GET["usuario"];
 if ($usuario == null or $clave == null)
 {
     
-   header('Location: inicio_seccion.html'); 
+   header('Location: inicio_seccion.php'); 
 }
 else
 {

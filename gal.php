@@ -5,6 +5,7 @@
 	<head>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
 	<link href="img\MS.png" rel="shortcut icon" type="image/png">
 	<style type="text/css">
 	@font-face
@@ -39,6 +40,26 @@
 			font-size: 30px;
 			
 		}
+	div
+		{
+			margin-left: 70%;
+			position: fixed;
+			background-color: #736C6D;
+			margin-top: 2%;
+			border : 1px solid black;
+			width: 20%;
+		}
+	p
+		{
+			margin-left: 10%;
+			color: black;
+		}
+	h3
+		{
+			margin-left: 10%;
+			font-family: Bangers;
+			font-size: 30px;
+		}
 	</style>
 	<title>Meme Search</title>
 	</head> 
@@ -48,11 +69,20 @@
 			</header>
 			<nav>
 			<ul>
-	  			<li><a  href="index.html"> Página Principal</a></li>
-	  			<li><a class="activa" href="gal.html">Galería</a></li>
-	  			<li><a href="inicio_seccion.html"> Inicio Sesión </a></li>
+	  			<li><a  href="index.php"> Página Principal</a></li>
+	  			<li><a class="activa" href="gal.php">Galería</a></li>
+	  			<li><a href="inicio_seccion.php"> Inicio Sesión </a></li>
 			</ul>
 			</nav>
+			
+			<div>
+				<h3> ¿ Buscas un Meme ? </h3>
+				<p><u><a href="busca_meme.php"> Para Buscar Meme Presion Aqui</a></u></p>
+				<hr>
+				<h3> ¿ Quieres Subir Tu Meme?</h3>
+				<p><u><a href="sube_meme.php"> Para Buscar Meme Presion Aqui</a></u></p>
+			</div>
+			
 			<section >
 			<h2 style="text-align:left;">Memes</h2>
 			<img src="img/meme1.jpg" alt=""><br>
@@ -73,5 +103,6 @@
 			<img src="img/meme6.jpg" alt="" style="width: 500px;s"><br>
 			<button> Like</button> <button>Comentar</button>
 			</section>
+
 		</body>
 	</html>

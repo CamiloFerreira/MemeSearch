@@ -29,8 +29,8 @@
 	p
 	{
 		letter-spacing: 1px;
-		margin-right: 400px;
-		margin-left: 200px;
+		margin-right: 40%;
+		margin-left: 20%;
 		font-style: fantasy;	
 
 	}
@@ -65,16 +65,16 @@
 			</header>
 			<nav>
 			<ul>
-	  			<li><a  href="index.html"> Página Principal</a></li>
-	  			<li><a href="gal.html">Galería</a></li>
-	  			<li><a class="activa" href="inicio_seccion.html"> Inicio Sesión </a></li>
+	  			<li><a  href="index.php"> Página Principal</a></li>
+	  			<li><a href="gal.php">Galería</a></li>
+	  			<li><a class="activa" href="inicio_seccion.php"> Inicio Sesión </a></li>
 			</ul>
 			</nav>
 			<section >
 			
 			<p> </p>
             <!--- Creacion de El Login -->
-                <form action="valida.php" method="get" >
+                <form action="php/valida.php" method="get" >
                     <h2>LOGIN</h2>
                     Usuario:<br>
                     <input type="text" id="usuario" > <br>
@@ -84,7 +84,7 @@
                     <input type="submit" name="Enviar">
                 </form><br>
                 <p> Se Olvido de Su contraseña </p> <br>
-                <p ><a id="p" target="_blank" href="registrarse.html" > Registrarse</a> </p>
+                <p ><a id="p" target="_blank" href="registrarse.php" > Registrarse</a> </p>
                 <script type="text/javascript" src="js/java2.js"></script>
 			</section>
 		</body>

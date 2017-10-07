@@ -1,8 +1,6 @@
-<?php 
-        session_start();
-        $usuario =$_SESSION["usuario"];
-?>
-<!DOCTYPE html>
+<! DOCTYPE HTML>
+
+	<!DOCTYPE html>
 	<html lang="es">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,9 +31,21 @@
 	{
 		letter-spacing: 1px;
 		margin-right: 40%;
-		margin-left: 20%;
+		margin-left: 10%;
 		font-family: 'Bangers', cursive;	
 	}		
+	input
+	{
+			padding-right: 1%;
+		    margin-left: 10%;
+			font-family: 'Bangers', cursive;
+			font-size: 30px;
+	}
+	section
+	{
+		height: 30%;
+		border: 1px solid black;
+	}
 
 	</style>
 	<title>Meme Search</title>
@@ -44,19 +54,16 @@
 			<header id="cabezera">
 				<h1> Meme Search</h1>
 			</header>
-			<nav>
-			<ul>
-	  			<li><a class="activa" href="index.php"> Página Principal</a></li>
-	  			<li><a href="gal.php">Galería</a></li>
-               <li><a> Bienvenido </a></li>
-			</ul>
-			</nav>
 			<section >
-			<h2 style="text-align:left;">MEJORES MEMES</h2>
-			<p> </p>
+			<h2 style="text-align:left;">Buscador Memes</h2>
+			<form>
+			 <p> Ingrese Categoria Del Meme:</p><br>
+			 <input type="text" >
+			 <p> Sube Archivo:</p>
+			 <input name="uploadedfile" type="file" />
+			</form>
+        
 			</section >
-            <aside id="aside_1">
-                TOP
-            </aside>
+		
 		</body>
 	</html>
