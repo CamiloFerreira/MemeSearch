@@ -74,7 +74,7 @@
 			
 			<p> </p>
             <!--- Creacion de El Login -->
-                <form action="php/valida.php" method="get" >
+                <form action="valida.php" method="get" >
                     <h2>LOGIN</h2>
                     Usuario:<br>
                     <input type="text" id="usuario" > <br>

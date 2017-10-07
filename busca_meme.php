@@ -43,7 +43,7 @@
 	}
 	section
 	{
-		height: 30%;
+		height: 50%;
 		border: 1px solid black;
 	}
 
@@ -57,8 +57,9 @@
 			<section >
 			<h2 style="text-align:left;">Buscador Memes</h2>
 			<p> Ingrese Categoria:</p><br>
-			<form>
-			 <input type="text" >	
+			<form action="busca_meme_db.php">
+			 <input type="text" name="categoria" ><br>
+			<input type="submit" value="Buscar">
 			</form>
 			<div>
 				Todos Los Memes Que Tenemos

@@ -8,7 +8,7 @@
     <!---- Estilos de esta pagina --->
     <link rel="stylesheet" type="text/css" href="css/main_registrarse.css">
     <body>
-        <form onsubmit="validaForm()" action="php/conexion.php" method="get">
+        <form onsubmit="validaForm()" action="conexion.php" method="get">
             <h1> Registrarse </h1>
             Nombre:<br>
             <input type="text" id="nombre" name="nombre" /><br>

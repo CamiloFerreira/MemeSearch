@@ -43,11 +43,10 @@
 	}
 	section
 	{
-		height: 30%;
+		height: 35%;
 		border: 1px solid black;
 	}
-
-	</style>
+ </style>
 	<title>Meme Search</title>
 	</head> 
 		<body>
@@ -55,12 +54,13 @@
 				<h1> Meme Search</h1>
 			</header>
 			<section >
-			<h2 style="text-align:left;">Buscador Memes</h2>
-			<form>
+			<h2 style="text-align:left;"> Envia Tu Meme</h2>
+			<form method="post" action="imagen_guardar.php" enctype="multipart/form-data" >
 			 <p> Ingrese Categoria Del Meme:</p><br>
-			 <input type="text" >
+			 <input type="text" name="categoria" >
 			 <p> Sube Archivo:</p>
-			 <input name="uploadedfile" type="file" />
+			 <input name="imagen" type="file" /><br>
+			 <input type="submit" value="Enviar">
 			</form>
         
 			</section >
