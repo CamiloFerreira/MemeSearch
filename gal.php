@@ -67,11 +67,6 @@ session_start();
 			line-height: 20%;
 			width: 60%;
 		}
-	td
-		{
-			border:  1px solid black;
-		}
-
 	</style>
 	<title>Meme Search</title>
 	</head> 
@@ -94,26 +89,23 @@ session_start();
 				<h3> ¿ Quieres Subir Tu Meme?</h3>
 				<p><u><a href="sube_meme.php"> Para Buscar Meme Presion Aqui</a></u></p>
 			</div>
-			
 			<section >
 			<h2 style="text-align:left;">Ultimos Subidos</h2>
-			<table >
+			
 <?php
 include ("conexion.php");
 $query = "select * from imagenes order by id_imagen desc;";
 $resultado = $conexion ->query($query);
 while($row = $resultado -> fetch_assoc()){				
 		?>
-				<tr>
-					<td  ><img src="data:image/jpg;base64,<?php echo base64_encode($row['meme']);?>"/></td>
-				</tr>
-				<tr>
-					<td><h3><?php echo $row['comentario']; ?></h3></td>
-				</tr>
-		<?php
+				
+			   <img src="data:image/jpg;base64,<?php echo base64_encode($row['meme']);?>"/><br>
+			   <h3><?php echo $row['comentario']; ?></h3><br>
+			   <hr>
+			
+<?php
 }
-	   ?>
-			</table>
+?>
 			</section>
 
 		</body>

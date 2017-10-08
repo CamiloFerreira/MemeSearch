@@ -7,7 +7,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet"> 
 	<link href="img\MS.png" rel="shortcut icon" type="image/png">
 	<head>
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/busca_meme.css">
 	<style type="text/css">
 	@font-face
 	{
@@ -33,6 +33,7 @@
 		margin-right: 400px;
 		margin-left: 10%;
 		font-family: 'Bangers', cursive;	
+		font-size: 40px;
 	}		
 	input
 	{
@@ -46,10 +47,8 @@
 		height: 50%;
 		border: 1px solid black;
 	}
-	img 
-		{
-			width: 40%
-		}
+
+
 	</style>
 	<title>Meme Search</title>
 	</head> 
@@ -60,31 +59,33 @@
 			<section >
 			<h2 style="text-align:left;">Buscador Memes</h2>
 			<p> Ingrese Categoria:</p><br>
-			<form action="busca_meme_db.php">
+			<form  >
 			 <input type="text" name="categoria" ><br>
 			<input type="submit" value="Buscar">
 			</form>
-			<center>
-			<table border="2">
-				<thead>
-					<th>Nombre</th>
-					<th> Imagen</th>
-				</thead>
-				<tbody>
+			</section >
+			<div>		
  <?php
+//Muestra Imagen 
 include ("conexion.php");
-$query = "select * from imagenes";
+$categoria=$_REQUEST['categoria'];
+$query = "select meme from imagenes where categoria='$categoria'";
 $resultado = $conexion ->query($query);
+
+if (!$resultado)
+{
+	echo "<p>No Se Encontro Ninguna Concidencia ....</p>";
+}
+else{
+
 while($row = $resultado -> fetch_assoc()){
  ?>
-			<tr>
-				<td><?php echo $row['categoria']; ?></td>		
-				<td><img src="data:image/jpg;base64,<?php echo base64_encode($row['meme']);}?>"/></td>
- 	
-				</tbody>
-			</table>
-			</center>
-			</section >
-		
+				
+<img src='data:image/jpg;base64,<?php echo base64_encode($row['meme']);?>'/><br>
+ <hr>
+<?php
+}}
+?>			
+				</div>
 		</body>
 	</html>
