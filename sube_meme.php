@@ -1,7 +1,7 @@
 <?php
 session_start();
 if ($_SESSION["iniciado"]){
-	header("location : index.php");
+	echo "No INICIO SECION";
 }
 
 
