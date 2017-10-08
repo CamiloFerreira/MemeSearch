@@ -1,4 +1,9 @@
-	<!DOCTYPE html>
+<?php
+
+session_start();
+
+?>
+<!DOCTYPE html>
 	<html>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,12 +24,7 @@
 		font-size: 80px;
 		color: transparent;
 	}
-	img 
-	{
-		margin-left: 20%;
-		border: 5px solid black;
-		line-height: 20%;
-	}
+
 
 	h2
 	{
@@ -60,6 +60,18 @@
 			font-family: Bangers;
 			font-size: 30px;
 		}
+	img
+		{
+			margin-left: 20%;
+			border: 5px solid black;
+			line-height: 20%;
+			width: 60%;
+		}
+	td
+		{
+			border:  1px solid black;
+		}
+
 	</style>
 	<title>Meme Search</title>
 	</head> 
@@ -84,24 +96,24 @@
 			</div>
 			
 			<section >
-			<h2 style="text-align:left;">Memes</h2>
-			<img src="img/meme1.jpg" alt=""><br>
-			<button> Like</button> <button>Comentar</button>
-			<hr>
-			<img src="img/meme2.jpg" alt="" style="width: 500px;"><br>
-			<button> Like</button> <button>Comentar</button>
-			<hr>
-			<img src="img/meme3.jpg" alt="" style="width: 500px;"><br>
-			<button> Like</button> <button>Comentar</button>
-			<hr>
-			<img src="img/meme4.jpg" alt="" style="width: 500px;s"><br>
-			<button> Like</button> <button>Comentar</button>
-			<hr>
-			<img src="img/meme5.jpg" alt="" style="width: 500px;s"><br>
-			<button> Like</button> <button>Comentar</button>
-			<hr>
-			<img src="img/meme6.jpg" alt="" style="width: 500px;s"><br>
-			<button> Like</button> <button>Comentar</button>
+			<h2 style="text-align:left;">Ultimos Subidos</h2>
+			<table >
+<?php
+include ("conexion.php");
+$query = "select * from imagenes order by id_imagen desc;";
+$resultado = $conexion ->query($query);
+while($row = $resultado -> fetch_assoc()){				
+		?>
+				<tr>
+					<td  ><img src="data:image/jpg;base64,<?php echo base64_encode($row['meme']);?>"/></td>
+				</tr>
+				<tr>
+					<td><h3><?php echo $row['comentario']; ?></h3></td>
+				</tr>
+		<?php
+}
+	   ?>
+			</table>
 			</section>
 
 		</body>

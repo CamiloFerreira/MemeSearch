@@ -1,4 +1,4 @@
-	<!DOCTYPE html>
+<!DOCTYPE html>
 	<html lang="es">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,12 +67,11 @@
 			<ul>
 	  			<li><a  href="index.php"> Página Principal</a></li>
 	  			<li><a href="gal.php">Galería</a></li>
-	  			<li><a class="activa" href="inicio_seccion.php"> Inicio Sesión </a></li>
+	  			<li><a class="activa" href="inicio_seccion.html"> Inicio Sesión </a></li>
 			</ul>
 			</nav>
 			<section >
 			
-			<p> </p>
             <!--- Creacion de El Login -->
                 <form action="valida.php" method="get" >
                     <h2>LOGIN</h2>

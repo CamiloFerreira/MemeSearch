@@ -1,5 +1,5 @@
-<! DOCTYPE HTML>
 
+<! DOCTYPE HTML>
 	<!DOCTYPE html>
 	<html lang="es">
 	<meta charset="utf-8">
@@ -46,7 +46,10 @@
 		height: 50%;
 		border: 1px solid black;
 	}
-
+	img 
+		{
+			width: 40%
+		}
 	</style>
 	<title>Meme Search</title>
 	</head> 
@@ -61,9 +64,26 @@
 			 <input type="text" name="categoria" ><br>
 			<input type="submit" value="Buscar">
 			</form>
-			<div>
-				Todos Los Memes Que Tenemos
-			</div>
+			<center>
+			<table border="2">
+				<thead>
+					<th>Nombre</th>
+					<th> Imagen</th>
+				</thead>
+				<tbody>
+ <?php
+include ("conexion.php");
+$query = "select * from imagenes";
+$resultado = $conexion ->query($query);
+while($row = $resultado -> fetch_assoc()){
+ ?>
+			<tr>
+				<td><?php echo $row['categoria']; ?></td>		
+				<td><img src="data:image/jpg;base64,<?php echo base64_encode($row['meme']);}?>"/></td>
+ 	
+				</tbody>
+			</table>
+			</center>
 			</section >
 		
 		</body>

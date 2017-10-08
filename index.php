@@ -1,4 +1,10 @@
-	<!DOCTYPE html>
+<?php
+
+session_start();
+$_SESSION["iniciado"]=true;
+
+?>
+<!DOCTYPE html>
 	<html lang="es">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,7 +57,7 @@
 			<h2 style="text-align:left;">MEJORES MEMES</h2>
 			<p> </p>
 			</section >
-                
+            
             <aside id="aside_1">
                 TOP
             </aside>

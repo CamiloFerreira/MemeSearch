@@ -1,5 +1,14 @@
-<! DOCTYPE HTML>
+<?php
+session_start();
+if ($_SESSION["iniciado"]){
+	header("location : index.php");
+}
 
+
+?>
+
+
+<! DOCTYPE HTML>
 	<!DOCTYPE html>
 	<html lang="es">
 	<meta charset="utf-8">
@@ -43,7 +52,7 @@
 	}
 	section
 	{
-		height: 35%;
+		height: 60%;
 		border: 1px solid black;
 	}
  </style>
@@ -57,9 +66,11 @@
 			<h2 style="text-align:left;"> Envia Tu Meme</h2>
 			<form method="post" action="imagen_guardar.php" enctype="multipart/form-data" >
 			 <p> Ingrese Categoria Del Meme:</p><br>
-			 <input type="text" name="categoria" >
+			 <input type="text" REQUIRED name="categoria" >
+			 <p> Ingrese Comentario y/o Descripcion</p><br>
+			 <input type="text" REQUIRED name="comentario" >
 			 <p> Sube Archivo:</p>
-			 <input name="imagen" type="file" /><br>
+			 <input name="imagen" REQUIRED type="file" /><br>
 			 <input type="submit" value="Enviar">
 			</form>
         
