@@ -1,13 +1,11 @@
 <?php
 session_start();
 if ($_SESSION["iniciado"]){
-	echo "No INICIO SECION";
+	echo "<script> alert('debe iniciar seccion'); </script>";
+	echo "<script> alert('Redireccionando A inicio seccion '); </script>";
+	echo "<script>location.href='inicio_seccion.php';</script>";
 }
-
-
 ?>
-
-
 <! DOCTYPE HTML>
 	<!DOCTYPE html>
 	<html lang="es">

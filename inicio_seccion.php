@@ -71,7 +71,6 @@
 			</ul>
 			</nav>
 			<section >
-			
             <!--- Creacion de El Login -->
                 <form action="valida.php" method="get" >
                     <h2>LOGIN</h2>

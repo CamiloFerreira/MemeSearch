@@ -8,7 +8,7 @@
     <!---- Estilos de esta pagina --->
     <link rel="stylesheet" type="text/css" href="css/main_registrarse.css">
     <body>
-        <form onsubmit="validaForm()" action="Guarda_usuarios.php" method="get">
+        <form onsubmit="validaForm()" action="Guarda_usuarios.php" method="post">
             <h1> Registrarse </h1>
             Nombre:<br>
             <input type="text"  required id="nombre" name="nombre" /><br>
@@ -26,3 +26,4 @@
         <script type="text/javascript" src="js/java.js"></script>
     </body>
 </html>
+
