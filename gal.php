@@ -100,6 +100,16 @@ while($row = $resultado -> fetch_assoc()){
 		?>
 				
 			   <img src="data:image/jpg;base64,<?php echo base64_encode($row['meme']);?>"/><br>
+			    <?php  $id_imagen=$row['id_imagen']; ?>
+			   <form>
+				<input type="submit" value="Like"> 
+			   </form>
+<?php 
+//si apreta el boton like 				
+echo $row['id_imagen'];
+				
+?>
+			   <button id="comentar"> Comentar</button>
 			   <h3><?php echo $row['comentario']; ?></h3><br>
 			   <hr>
 			
