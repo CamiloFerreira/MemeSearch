@@ -1,4 +1,10 @@
-	<!DOCTYPE html>
+<?php
+
+session_start();
+$_SESSION["iniciado"]=true;
+
+?>
+<!DOCTYPE html>
 	<html lang="es">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,8 +34,8 @@
 	p
 	{
 		letter-spacing: 1px;
-		margin-right: 400px;
-		margin-left: 200px;
+		margin-right:40%;
+		margin-left: 20%;
 		font-family: 'Bangers', cursive;	
 	}		
 
@@ -42,16 +48,16 @@
 			</header>
 			<nav>
 			<ul>
-	  			<li><a class="activa" href="index.html"> Página Principal</a></li>
-	  			<li><a href="gal.html">Galería</a></li>
-	  			<li><a href="inicio_seccion.html"> Inicio Sesión </a></li>
+	  			<li><a class="activa" href="index.php"> Página Principal</a></li>
+	  			<li><a href="gal.php">Galería</a></li>
+	  			<li><a href="inicio_seccion.php"> Inicio Sesión </a></li>
 			</ul>
 			</nav>
 			<section >
 			<h2 style="text-align:left;">MEJORES MEMES</h2>
 			<p> </p>
 			</section >
-                
+            
             <aside id="aside_1">
                 TOP
             </aside>
