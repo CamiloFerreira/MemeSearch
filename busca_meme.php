@@ -67,7 +67,7 @@ if ($_SESSION["error"]){
 			<section >
 			<h2 style="text-align:left;">Buscador Memes</h2>
 			<p> Ingrese Categoria:</p><br>
-			<form  >
+			<form method="post" >
 			 <input type="text" name="categoria" ><br>
 			<input type="submit" value="Buscar">
 			</form>
@@ -76,19 +76,19 @@ if ($_SESSION["error"]){
  <?php
 //Muestra Imagen 
 include ("conexion.php");
-$categoria=$_REQUEST['categoria'];
+$categoria=$_POST['categoria'];
 $query = "select meme from imagenes where categoria='$categoria'";
+$query2 = "select categoria from images where categoria='$categoria'";
+$resultado2 = $conexion ->query($query2);
 $resultado = $conexion ->query($query);
-
 if (!$resultado)
 {
 	echo "<p>No Se Encontro Ninguna Concidencia ....</p>";
 }
 else{
-
+echo "<p> Todos Los Memes Relacionados....</p>";
 while($row = $resultado -> fetch_assoc()){
- ?>
-				
+ ?>		
 <img src='data:image/jpg;base64,<?php echo base64_encode($row['meme']);?>'/><br>
  <hr>
 <?php
