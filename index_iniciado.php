@@ -35,7 +35,7 @@
 		margin-right: 40%;
 		margin-left: 20%;
 		font-family: 'Bangers', cursive;	
-	}		
+	}
 
 	</style>
 	<title>Meme Search</title>
@@ -47,8 +47,14 @@
 			<nav>
 			<ul>
 	  			<li><a class="activa" href="index.php"> Página Principal</a></li>
-	  			<li><a href="gal.php">Galería</a></li>
-               <li><a> Bienvenido </a></li>
+				<li><a href="gal.php">Galería</a></li>
+				<li><a> Bienvenido </a></li>
+			<?php
+				if (!$_SESSION["error"]){
+	  			 echo "<li><a id='cierra' href='cierra_sesion.php'> Cerrar Sesion </a></li>";
+				 }
+				?>
+				 
 			</ul>
 			</nav>
 			<section >

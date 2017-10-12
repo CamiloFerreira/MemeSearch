@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-$_SESSION["iniciado"]=true;
+$_SESSION["error"]=true;
 
 ?>
 <!DOCTYPE html>
@@ -50,7 +50,7 @@ $_SESSION["iniciado"]=true;
 			<ul>
 	  			<li><a class="activa" href="index.php"> Página Principal</a></li>
 	  			<li><a href="gal.php">Galería</a></li>
-	  			<li><a href="inicio_seccion.php"> Inicio Sesión </a></li>
+	  			<li><a href='inicio_seccion.php'> Inicio Sesión </a></li>
 			</ul>
 			</nav>
 			<section >

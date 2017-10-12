@@ -76,12 +76,29 @@ session_start();
 			</header>
 			<nav>
 			<ul>
-	  			<li><a  href="index.php"> Página Principal</a></li>
+				<?php
+				 if ($_SESSION["error"]){
+	  			 echo "<li><a  href='index.php'> Página Principal</a></li>";
+				 }
+				 else
+				 {
+				  echo "<li><a  href='index_iniciado.php'> Página Principal</a></li>"; 
+				 }
+				?>
 	  			<li><a class="activa" href="gal.php">Galería</a></li>
-	  			<li><a href="inicio_seccion.php"> Inicio Sesión </a></li>
+	  			<?php
+				if ($_SESSION["error"]){
+	  			 echo "<li><a href='inicio_seccion.php'> Inicio Sesión </a></li>";
+				}else
+				{
+				 echo "<li><a>Bienvenido</a></li>";	
+	  			 echo "<li><a  href='cierra_sesion.php'> Cerrar Sesion </a></li>";
+				 
+				}
+				?>
 			</ul>
 			</nav>
-			
+
 			<div>
 				<h3> ¿ Buscas un Meme ? </h3>
 				<p><u><a href="busca_meme.php"> Para Buscar Meme Presion Aqui</a></u></p>
@@ -97,23 +114,13 @@ include ("conexion.php");
 $query = "select * from imagenes order by id_imagen desc;";
 $resultado = $conexion ->query($query);
 while($row = $resultado -> fetch_assoc()){				
-		?>
-				
-			   <img src="data:image/jpg;base64,<?php echo base64_encode($row['meme']);?>"/><br>
-			    <?php  $id_imagen=$row['id_imagen']; ?>
-			   <form>
-				<input type="submit" value="Like"> 
-			   </form>
-<?php 
-//si apreta el boton like 				
-echo $row['id_imagen'];
-				
 ?>
-			   <button id="comentar"> Comentar</button>
-			   <h3><?php echo $row['comentario']; ?></h3><br>
-			   <hr>
-			
+<img src="data:image/jpg;base64,<?php echo base64_encode($row['meme']);?>"/><br>
 <?php
+$id_imagen=$row['id_imagen'];
+echo "<h3>".$row['comentario']."</h3><br>";
+echo "<hr>";
+
 }
 ?>
 			</section>

@@ -40,7 +40,9 @@ if (!$ejecutar)
    $claveC= mysqli_fetch_array($ejecutar2);
    if ($usuario == $usuarioC[0] and $clave == $claveC[0])
 	{
-		$_SESSION["iniciado"]=false;
+		$_SESSION["error"]=false;
+	    $_SESSION["iniciado"]=true;
+	    $_SESSION["usuario"]=$usuario;
         header('Location: index_iniciado.php');
 	}      
  }
