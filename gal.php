@@ -113,17 +113,31 @@ session_start();
 include ("conexion.php");
 $query = "select * from imagenes order by id_imagen desc;";
 $resultado = $conexion ->query($query);
-while($row = $resultado -> fetch_assoc()){				
+while($row = $resultado -> fetch_assoc()){
+
 ?>
 <img src="data:image/jpg;base64,<?php echo base64_encode($row['meme']);?>"/><br>
 <?php
-$id_imagen=$row['id_imagen'];
-echo "<h3>".$row['comentario']."</h3><br>";
-echo "<hr>";
 
+
+$_SESSION['id']=$row['id_imagen'];
+echo $row['id_imagen'];
+echo "<h3>".$row['comentario']."</h3><br>";
+?>
+<a href="guarda_like.php?id=<?php echo $row['id_imagen'];?>" ><button>Like</button></a>
+<hr>
+<?php
 }
 ?>
 			</section>
-
+<script>
+function muestra_id(){
+	var id_imagen="<?php echo $id_imagen ?>";
+	alert(id_imagen);
+	
+	
+}			
+			
+</script>
 		</body>
 	</html>
