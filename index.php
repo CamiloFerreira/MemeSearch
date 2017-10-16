@@ -38,6 +38,22 @@ $_SESSION["error"]=true;
 		margin-left: 20%;
 		font-family: 'Bangers', cursive;	
 	}		
+	img{
+		margin-left: 20%;
+		height: 5%;	
+		width: 60%;
+		
+		}
+	#aside_1
+		{
+	    position:relative	;
+	    background-image: url(img/fondoaside.jpg);
+		width: 20%;
+		height: auto;
+		margin-left: 70%;
+		margin-top: -5%;
+		color: white;
+		}
 
 	</style>
 	<title>Meme Search</title>
@@ -59,7 +75,19 @@ $_SESSION["error"]=true;
 			</section >
             
             <aside id="aside_1">
-                TOP
+                <h2>TOP 5 Del Dia</h2>
+<?php
+include ("conexion.php");
+$query = "SELECT meme,count(cantidad_v) FROM imagenes INNER JOIN puntuaciones on puntuaciones.id_imagen=imagenes.id_imagen  GROUP by meme order by cantidad_v desc limit 5";
+$resultado = $conexion ->query($query);
+while($row = $resultado -> fetch_assoc()){
+?>
+<img src="data:image/jpg;base64,<?php echo base64_encode($row['meme']);?>"/><br>
+<hr>
+<?php
+}				
+				
+?>
             </aside>
         
 		</body>
