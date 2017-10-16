@@ -1,12 +1,12 @@
 <?php 
 //Conectarse con el servidor
+session_start();
 $conn = mysqli_connect('localhost','root','');
+$idusuario=$_SESSION["id_usuario"];
+$comentario = $_POST['comentario'];
+$id_imagen=$_REQUEST['id'];
+$fecha = date("Y-m-d");
 
-$nombre=$_POST['nombre'];
-$apellido=$_POST['apellido'];
-$usuario=$_POST['usuario'];
-$clave=$_POST['clave'];
-$correo=$_POST['correo'];
 
 if (!$conn)
  {
@@ -22,7 +22,7 @@ if (!$conn)
 	 }
  }
 //Hacer la sentencia de sql
-$sql = "INSERT INTO `usuarios`( `usuario`, `nombre`, `apellido`, `clave`, `correo`) VALUES('$usuario','$nombre','$apellido','$clave','$correo')";
+$sql = "INSERT INTO comentarios(id_imagen, idusuario,comentario, fecha) VALUES ($id_imagen,$idusuario,'$comentario','$fecha')";
 //Ejecutar sentencia sql
  $ejecutar =mysqli_query($conn,$sql);
  if (!$ejecutar)
@@ -32,7 +32,7 @@ $sql = "INSERT INTO `usuarios`( `usuario`, `nombre`, `apellido`, `clave`, `corre
  else
  {
 	 
-	header('Location: index.php');
+	header('Location: gal.php');
  }
 
 

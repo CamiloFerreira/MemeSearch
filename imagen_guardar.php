@@ -31,7 +31,7 @@ $sql = "INSERT INTO imagenes (categoria,meme,comentario,fecha) VALUES ('$categor
  }
  else
  {
-	header('Location: index.php');
+	header('Location: index_iniciado.php');
  }
 
 

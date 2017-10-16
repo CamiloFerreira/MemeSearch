@@ -1,6 +1,9 @@
 <?php
 
 session_start();
+
+$id_imagen=$_REQUEST['id'];
+
 if ($_SESSION["error"]){
 	echo "<script> alert('debe iniciar seccion'); </script>";
 	echo "<script> alert('Redireccionando A inicio seccion '); </script>";
@@ -45,19 +48,26 @@ if ($_SESSION["error"]){
 	}		
 	input
 	{
-			padding-right: 30%;
-		    margin-left: 10%;
+			
 			font-family: 'Bangers', cursive;
-			font-size: 50px;
+			font-size: 20px;
 	}
 	section
 	{
-		height: 50%;
+		height: auto;
 		border: 1px solid black;
 	}
+    textarea,input
+    {
+            margin-left: 20%;
+    }
+    h5,h3
+    {
+     margin-left: 20%;        
+    }
 
 
-	</style>
+	</style> 
 	<title>Meme Search</title>
 	</head> 
 		<body>
@@ -65,35 +75,28 @@ if ($_SESSION["error"]){
 				<h1> Meme Search</h1>
 			</header>
 			<section >
-			<h2 style="text-align:left;">Buscador Memes</h2>
-			<p> Ingrese Categoria:</p><br>
-			<form method="post" >
-			 <input type="text" name="categoria" ><br>
-			<input type="submit" value="Buscar">
-			</form>
-			</section >
-			<div>		
- <?php
-//Muestra Imagen 
-include ("conexion.php");
-$categoria=$_POST['categoria'];
-$query = "select meme from imagenes where categoria='$categoria'";
-$query2 = "select categoria from images where categoria='$categoria'";
-$resultado2 = $conexion ->query($query2);
-$resultado = $conexion ->query($query);
-if (!$resultado)
-{
-	echo "<p>No Se Encontro Ninguna Concidencia ....</p>";
-}
-else{
-echo "<p> Todos Los Memes Relacionados....</p>";
-while($row = $resultado -> fetch_assoc()){
- ?>		
-<img src='data:image/jpg;base64,<?php echo base64_encode($row['meme']);?>'/><br>
- <hr>
+			<h2 style="text-align:left;">Comentarios Memes </h2>
 <?php
-}}
-?>			
-				</div>
+include ("conexion.php");
+$query = "SELECT usuario , comentario from usuarios INNER JOIN comentarios on comentarios.idusuario = usuarios.idusuario where id_imagen=$id_imagen";
+$resultado = $conexion ->query($query);
+while($row = $resultado -> fetch_assoc()){
+?>
+<?php
+
+echo "<h3> Usuario :".$row['usuario']."</h3><br>";
+echo "<h5>".$row['comentario']."</h5><br>";
+?>
+<hr>
+<?php
+}
+?>
+			<form method="post" action="guarda_comentario.php?id=<?php echo $id_imagen; ?>" >
+			 <textarea rows="8" cols="50" name="comentario" id="comentario" maxlength="300">
+            </textarea><br>
+			<input type="submit" value="enviar">
+			</form>
+			</section >	
+		
+				
 		</body>
-	</html>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ($_SESSION["iniciado"]){
+if ($_SESSION["error"]){
 	echo "<script> alert('debe iniciar seccion'); </script>";
 	echo "<script> alert('Redireccionando A inicio seccion '); </script>";
 	echo "<script>location.href='inicio_seccion.php';</script>";
