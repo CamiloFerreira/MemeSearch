@@ -1,5 +1,10 @@
 <?php
 session_start();
+if ($_SESSION["error"]){
+	echo "<script> alert('debe iniciar seccion'); </script>";
+	echo "<script> alert('Redireccionando A inicio seccion '); </script>";
+	echo "<script>location.href='inicio_seccion.php';</script>";
+}else{
 
 $id_usuario=$_SESSION["id_usuario"];
 $id=$_GET['id'];
@@ -47,5 +52,5 @@ $sql2 = "UPDATE puntuaciones set cantidad_v=cantidad_v+1 where id_imagen=$id and
 		 header('Location: index_iniciado.php');
 	 }
  }
-	 
+}
 ?>

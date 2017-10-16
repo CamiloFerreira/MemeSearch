@@ -1,6 +1,9 @@
 <?php
 
 session_start();
+
+$id_imagen=$_SESSION['id2'];
+
 if ($_SESSION["error"]){
 	echo "<script> alert('debe iniciar seccion'); </script>";
 	echo "<script> alert('Redireccionando A inicio seccion '); </script>";
@@ -51,14 +54,18 @@ if ($_SESSION["error"]){
 	}
 	section
 	{
-		height: 50%;
+		height: auto;
 		border: 1px solid black;
 	}
     textarea,input
-        {
+    {
             margin-left: 20%;
-        }
-    
+    }
+    h5,h3
+    {
+     margin-left: 20%;        
+    }
+
 
 	</style> 
 	<title>Meme Search</title>
@@ -69,9 +76,23 @@ if ($_SESSION["error"]){
 			</header>
 			<section >
 			<h2 style="text-align:left;">Comentarios Memes </h2>
-			<form method="post" action="guarda_comentario.php" >
-			 <textarea rows="10" cols="60" name="comentario" id="comentario">
-                
+<?php
+include ("conexion.php");
+$query = "SELECT usuario , comentario from usuarios INNER JOIN comentarios on comentarios.idusuario = usuarios.idusuario where id_imagen=$id_imagen";
+$resultado = $conexion ->query($query);
+while($row = $resultado -> fetch_assoc()){
+?>
+
+<?php
+echo "<h3> Usuario :".$row['usuario']."</h3><br>";
+echo "<h5>".$row['comentario']."</h5><br>";
+?>
+<hr>
+<?php
+}
+?>
+			<form method="post" action="guarda_comentario.php?id=<?php echo $id_imagen; ?>" >
+			 <textarea rows="8" cols="50" name="comentario" id="comentario" maxlength="300">
             </textarea><br>
 			<input type="submit" value="enviar">
 			</form>
