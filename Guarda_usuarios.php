@@ -35,5 +35,5 @@ $sql = "INSERT INTO `usuarios`( `usuario`, `nombre`, `apellido`, `clave`, `corre
 	header('Location: index.php');
  }
 
-}
+
 ?>

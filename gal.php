@@ -125,6 +125,7 @@ echo $row['id_imagen'];
 echo "<h3>".$row['comentario']."</h3><br>";
 ?>
 <a href="guarda_like.php?id=<?php echo $row['id_imagen'];?>" ><button>Like</button></a>
+<a href="comentarios.php?id=<?php echo $row['id_imagen'];?>" ><button>Comentar</button></a>
 <hr>
 <?php
 }
