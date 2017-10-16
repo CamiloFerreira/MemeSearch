@@ -72,12 +72,12 @@
 			</nav>
 			<section >
             <!--- Creacion de El Login -->
-                <form action="valida.php" method="get" >
+                <form action="valida.php" method="post" >
                     <h2>LOGIN</h2>
                     Usuario:<br>
-                    <input type="text" id="usuario" > <br>
+                    <input type="text" id="usuario" name="usuario" /> <br>
                     Clave:<br>
-                    <input type="password" id="clave"> <br>
+                    <input type="password" id="clave" name="clave" /> <br>
                     <br>
                     <input type="submit" name="Enviar">
                 </form><br>
