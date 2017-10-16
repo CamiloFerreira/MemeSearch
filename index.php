@@ -28,7 +28,7 @@ $_SESSION["error"]=true;
 		
 		letter-spacing: 1px;
 		text-decoration: underline;
-		margin-left: 200px;
+		margin-left: 20%;
 		font-family: 'Bangers', cursive;
 	}
 	p
@@ -73,7 +73,6 @@ $_SESSION["error"]=true;
 			<h2 style="text-align:left;">MEJORES MEMES</h2>
 			<p> </p>
 			</section >
-            
             <aside id="aside_1">
                 <h2>TOP 5 Del Dia</h2>
 <?php
