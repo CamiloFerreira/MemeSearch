@@ -2,7 +2,7 @@
 
 session_start();
 
-$id_imagen=$_SESSION['id2'];
+$id_imagen=$_REQUEST['id'];
 
 if ($_SESSION["error"]){
 	echo "<script> alert('debe iniciar seccion'); </script>";
@@ -82,8 +82,8 @@ $query = "SELECT usuario , comentario from usuarios INNER JOIN comentarios on co
 $resultado = $conexion ->query($query);
 while($row = $resultado -> fetch_assoc()){
 ?>
-
 <?php
+
 echo "<h3> Usuario :".$row['usuario']."</h3><br>";
 echo "<h5>".$row['comentario']."</h5><br>";
 ?>
