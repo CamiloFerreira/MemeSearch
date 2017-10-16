@@ -67,7 +67,7 @@
 			<ul>
 	  			<li><a  href="index.php"> Página Principal</a></li>
 	  			<li><a href="gal.php">Galería</a></li>
-	  			<li><a class="activa" href="inicio_seccion.html"> Inicio Sesión </a></li>
+	  			<li><a class="activa" href="inicio_seccion.php"> Inicio Sesión </a></li>
 			</ul>
 			</nav>
 			<section >
