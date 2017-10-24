@@ -88,7 +88,7 @@ session_start();
 	  			<li><a class="activa" href="gal.php">Galería</a></li>
 	  			<?php
 				if ($_SESSION["error"]){
-	  			 echo "<li><a href='inicio_seccion.php'> Inicio Sesión </a></li>";
+	  			 echo "<li><a href='inicio_sesion.php'> Inicio Sesión </a></li>";
 				}else
 				{
 				 echo "<li><a>Bienvenido</a></li>";	
@@ -121,10 +121,10 @@ while($row = $resultado -> fetch_assoc()){
 
 
 $_SESSION['id']=$row['id_imagen'];
+echo $row['id_imagen'];
 echo "<h3>".$row['comentario']."</h3><br>";
 ?>
 <a href="guarda_like.php?id=<?php echo $row['id_imagen'];?>" ><button>Like</button></a>
-<a href="comentarios.php?id=<?php echo $row['id_imagen'];?>" ><button>Comentar</button></a>
 <hr>
 <?php
 }
