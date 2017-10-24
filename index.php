@@ -84,7 +84,7 @@ echo $mes
 			</ul>
 			</nav>
 			<section >
-			<h2 style="text-align:left;">MEJORES MEMES Del Mes</h2>
+			<h2 style="text-align:left;">MEJOR MEMES Del Mes</h2>
 <?php
 include ("conexion.php");
 $query2= "SELECT meme,count(cantidad_v) FROM imagenes INNER JOIN puntuaciones on puntuaciones.id_imagen=imagenes.id_imagen where date_format(puntuaciones.fecha,'%m')='$mes' GROUP by meme order by cantidad_v desc limit 1";
