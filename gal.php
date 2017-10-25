@@ -81,22 +81,16 @@ $fecha =date("Y-m-d");
 				<?php
 				 if ($_SESSION["error"]){
 	  			 echo "<li><a  href='index.php'> Página Principal</a></li>";
+				 echo "<li><a class='activa' href='gal.php'>Galería</a></li>";
+				 echo "<li><a href='inicio_sesion.php'> Inicio Sesión </a></li>";
 				 }
 				 else
 				 {
 				  echo "<li><a  href='index_iniciado.php'> Página Principal</a></li>"; 
+				  echo "<li><a class='activa' href='gal.php'>Galería</a></li>";
+				  echo "<li><a>Bienvenido</a></li>";	
+	  			  echo "<li><a  href='cierra_sesion.php'> Cerrar Sesion </a></li>";
 				 }
-				?>
-	  			<li><a class="activa" href="gal.php">Galería</a></li>
-	  			<?php
-				if ($_SESSION["error"]){
-	  			 echo "<li><a href='inicio_sesion.php'> Inicio Sesión </a></li>";
-				}else
-				{
-				 echo "<li><a>Bienvenido</a></li>";	
-	  			 echo "<li><a  href='cierra_sesion.php'> Cerrar Sesion </a></li>";
-				 
-				}
 				?>
 			</ul>
 			</nav>
@@ -123,7 +117,6 @@ while($row = $resultado -> fetch_assoc()){
 
 
 $_SESSION['id']=$row['id_imagen'];
-echo $row['id_imagen'];
 echo "<h3>".$row['comentario']."</h3><br>";
 ?>
 <a href="guarda_like.php?id=<?php echo $row['id_imagen'];?>" ><button>Like</button></a>
@@ -133,14 +126,5 @@ echo "<h3>".$row['comentario']."</h3><br>";
 }
 ?>
 			</section>
-<script>
-function muestra_id(){
-	var id_imagen="<?php echo $id_imagen ?>";
-	alert(id_imagen);
-	
-	
-}			
-			
-</script>
 		</body>
 	</html>

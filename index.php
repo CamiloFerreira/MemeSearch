@@ -107,7 +107,7 @@ while($row2 = $resultado2 -> fetch_assoc()){
             <aside id="aside_1">
                 <h2>TOP 5 Del Dia</h2>
 <?php
-$query = "SELECT meme,count(cantidad_v) FROM imagenes INNER JOIN puntuaciones on puntuaciones.id_imagen=imagenes.id_imagen where puntuaciones.fecha='2017-10-24' GROUP by meme order by cantidad_v desc limit 5";
+$query = "SELECT meme,count(cantidad_v) FROM imagenes INNER JOIN puntuaciones on puntuaciones.id_imagen=imagenes.id_imagen where puntuaciones.fecha='$fecha' GROUP by meme order by cantidad_v desc limit 5";
 $resultado = $conexion ->query($query);
 if (!$resultado){
 	echo " ";
