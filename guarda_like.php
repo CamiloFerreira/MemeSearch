@@ -1,5 +1,8 @@
 <?php
 session_start();
+date_default_timezone_set('America/Santiago');
+
+$fecha =date("Y-m-d");
 if ($_SESSION["error"]){
 	
 	echo"<script>alert('No Has Iniciado Sesion ....')</script>";
@@ -32,7 +35,7 @@ if (!$conn)
 //Hacer la sentencia de sql
 $sql = " INSERT INTO puntuaciones(idusuario,id_imagen,cantidad_v,hora,fecha) values ($id_usuario,$id,0,'$hora','$fecha');";
 $sql2 = "UPDATE puntuaciones set cantidad_v=cantidad_v+1 where id_imagen=$id and idusuario=$id_usuario";
-$sql3 = "select * from puntuaciones where idusuario=$id_usuario";
+$sql3 = "select * from puntuaciones where idusuario=$id_usuario and fecha=$fecha";
 
 //Ejecutar sentencia sql
  $ejecutar =mysqli_query($conn,$sql);
@@ -43,7 +46,12 @@ $sql3 = "select * from puntuaciones where idusuario=$id_usuario";
  else
  {
 	 $ejecutar5=mysqli_query($conn,$sql3);
+     if (!$ejecutar5){
+         echo "Se presento un error";
+     }
 	 $respuesta=mysqli_fetch_array($ejecutar5);
+     if (strlen($respuesta[3])>=1){
+    //Inserta Like
 	if ($respuesta[2]==0){
 	 $ejecutar2 =mysqli_query($conn,$sql2);
 	 if (!$ejecutar2){
@@ -54,10 +62,10 @@ $sql3 = "select * from puntuaciones where idusuario=$id_usuario";
 		 header('Location: index_iniciado.php');
 	 }
 	}
-	else{
+ }else{
 		echo "<script> alert('Usted ya dio su like espere 24 hrs para volver a votar')</script>";
 		echo "<script>location.href='gal.php';</script>";
 	}
- }
 } 
+}
 ?>
