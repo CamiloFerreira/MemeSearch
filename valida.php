@@ -49,7 +49,7 @@ if (!$ejecutar)
 	   	header('Location: index_iniciado.php');
 	} else
    {
-	   header('Location: inicio_seccion.php');
+	   header('Location: inicio_sesion.php');
    }
  }
  
