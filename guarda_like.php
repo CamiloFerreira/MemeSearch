@@ -35,27 +35,20 @@ if (!$conn)
 //Hacer la sentencia de sql
 $sql = " INSERT INTO puntuaciones(idusuario,id_imagen,cantidad_v,hora,fecha) values ($id_usuario,$id,0,'$hora','$fecha');";
 $sql2 = "UPDATE puntuaciones set cantidad_v=cantidad_v+1 where id_imagen=$id and idusuario=$id_usuario";
-$sql3 = "select * from puntuaciones where idusuario=$id_usuario ";
+$sql3 = "select * from puntuaciones where idusuario=$id_usuario order by fecha DESC ";
 
 //Ejecutar sentencia sql
  //$ejecutar =mysqli_query($conn,$sql);
  $ejecutar5=mysqli_query($conn,$sql3);
- if ($ejecutar5){
-	 $respuesta=mysqli_fetch_array($ejecutar5);
-	 if (strlen($respuesta[2]) >0 and $respuesta[2] !=0 ){
-		echo "<script> alert('Usted ya dio su like espere 24 hrs para volver a votar')</script>";
-		echo "<script>location.href='gal.php';</script>";
-	 }
-	 else{
-		if($respuesta[3] != $fecha){
-		$ejecutar =mysqli_query($conn,$sql);
-		$ejecutar2 =mysqli_query($conn,$sql2);
-		echo "<script>location.href='gal.php';</script>";
-	 }else{
-		echo "<script> alert('Usted ya dio su like espere 24 hrs para volver a votar')</script>";
-		echo "<script>location.href='gal.php';</script>";	
-		
-		}
- }		
-}
+ $respuesta=mysqli_fetch_array($ejecutar5);
+ if ($respuesta[3] == $fecha){
+	 echo "es Igual";
+	 echo "<script> alert('Usted ya dio su like espere 24 hrs para volver a votar')</script>";
+	 echo "<script>location.href='gal.php';</script>";
+ }else
+ {
+	 $ejecutar =mysqli_query($conn,$sql);
+	 $ejecutar2 =mysqli_query($conn,$sql2);
+	 echo "<script>location.href='gal.php';</script>";
+ }
 }
