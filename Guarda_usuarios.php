@@ -1,6 +1,8 @@
 <?php 
 //Conectarse con el servidor
 $conn = mysqli_connect('localhost','root','');
+$respuesta=$_POST['respuesta'];
+$pregunta = $_REQUEST['pregunta'];
 
 $nombre=$_POST['nombre'];
 $apellido=$_POST['apellido'];
@@ -22,9 +24,25 @@ if (!$conn)
 	 }
  }
 //Hacer la sentencia de sql
-$sql = "INSERT INTO `usuarios`( `usuario`, `nombre`, `apellido`, `clave`, `correo`) VALUES('$usuario','$nombre','$apellido','$clave','$correo')";
+$sql2="SELECT correo  from usuarios where correo='$correo '";
+$sql3="SELECT usuario  from usuarios where usuario='$usuario'";
+$sql = "INSERT INTO `usuarios`( `usuario`, `nombre`, `apellido`, `clave`, `correo`,`pregunta`,`respuesta`) VALUES('$usuario','$nombre','$apellido','$clave','$correo','$pregunta','$respuesta')";
 //Ejecutar sentencia sql
- $ejecutar =mysqli_query($conn,$sql);
+$ejecutar2 =mysqli_query($conn,$sql2);
+$resultado=mysqli_fetch_array($ejecutar2);
+$ejecutar3 =mysqli_query($conn,$sql3);
+$resultado2=mysqli_fetch_array($ejecutar3);
+if ($resultado[0] == $correo){
+	echo "<script>alert('Correo ya existe')</script>";
+	echo "<script>alert('Volver a Intentar')</script>";
+	echo "<script>location.href='registrarse.php';</script>";
+}else if ( $resultado2[0]==$usuario){
+	echo "<script>alert('Usuario Ya existe')</script>";
+	echo "<script>alert('Volver a Intentar')</script>";
+	echo "<script>location.href='registrarse.php';</script>";
+}
+else{
+  $ejecutar =mysqli_query($conn,$sql);
  if (!$ejecutar)
  {
 	 echo "Se Produjo un error";
@@ -35,5 +53,4 @@ $sql = "INSERT INTO `usuarios`( `usuario`, `nombre`, `apellido`, `clave`, `corre
 	header('Location: index.php');
  }
 
-
-?>
+}

@@ -18,6 +18,13 @@ session_start();
             <input type='text'  required id='nombre' name='nombre' /><br>
   			Correo:<br>
 			<input type='text'  required id='correo' name='correo' /><br>
+			<select name="pregunta">
+			<option> Pregunta De Seguridad</option>
+			<option value="1"> ¿Nombre Ciudad ? </option>
+			<option value="2"> ¿Nombre Mascota? </option>
+			<option value="3"> ¿Ciudad de Nacimiento?</option>
+			</select><br>
+			<input type="text" required id="respuesta" name="respuesta"  /> <br>
 			<input type='submit' required />
 			<br>
 		</form>

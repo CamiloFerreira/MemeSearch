@@ -20,7 +20,13 @@
             <input type="password" required id="clave" name="clave" /><br>
             Correo: <br>
             <input type="text" required  id="correo" name="correo" /> <br>
-            <br>
+			<select name="pregunta">
+			<option > Pregunta De Seguridad</option>
+			<option value="1"> ¿Nombre Ciudad ?   </option>
+			<option value="2"> ¿Nombre Mascota?   </option>
+			<option value="3"> ¿Ciudad de Nacimiento?</option>
+			</select><br>
+			<input type="text" required name="respuesta" id="respuesta"><br>
             <input type="submit" required name="enviar" onclick="validaForm()"/>  
         </form>
         <script type="text/javascript" src="js/java.js"></script>

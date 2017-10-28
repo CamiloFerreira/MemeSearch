@@ -62,6 +62,7 @@ function validaForm() {
         apellido.focus();
         return false;
     }else {
-        alert("Guardando...");
+        alert("Comprobando Datos....");
+		
     }    
 }

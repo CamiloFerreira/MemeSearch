@@ -88,7 +88,7 @@ $fecha =date("Y-m-d");
 				 {
 				  echo "<li><a  href='index_iniciado.php'> Página Principal</a></li>"; 
 				  echo "<li><a class='activa' href='gal.php'>Galería</a></li>";
-				  echo "<li><a>Bienvenido</a></li>";	
+				  echo "<li><a>Bienvenido" .$_SESSION["usuario"]."</a></li>";	
 	  			  echo "<li><a  href='cierra_sesion.php'> Cerrar Sesion </a></li>";
 				 }
 				?>
