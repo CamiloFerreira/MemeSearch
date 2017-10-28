@@ -3,27 +3,23 @@
 	<head>
 		<title> ADMIN</title>
 	<style>
+img{
+ height: 20%;	
+	
+	
+}
 table {
-    font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 10%;
 }
 
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
-
-
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
-</style>
+table, th, td {
+    border: 1px solid black;
+}	
+		
+	</style>
 	</head>
-
 	<body>
-		<p><u> Tabla Usuarios</u></p>
+		<h1><u> Tabla Usuarios</u></h1>
 		<table border="2">
 			<tr>
 				<th> idusuario</th>
@@ -55,8 +51,37 @@ tr:nth-child(even) {
 			echo "</tr>";
 			}
 			?>
-			
 		</table>
-	
+	<hr>
+	<h1><u> Tabla Imagenes </u></h1>
+	<table border="2">
+		<tr>
+			<th> id_imagen</th>
+			<th> Aceptado</th>
+			<th> Categoria</th>
+			<th> Meme</th>
+			<th> Fecha</th>
+			<th> Comentario</th>
+			<th colspan="3" > Operacion</th>
+		</tr>
+		<?php
+			$query2="select * from imagenes";
+			$resultado2= $conexion->query($query2);
+			while ($row2 = $resultado2 -> fetch_assoc()){
+			echo "<tr>";
+			echo "<th>".$row2['id_imagen']."</th>";	
+			echo "<th>".$row2['aceptado']."</th>";
+			echo "<th>".$row2['categoria']."</th>";	
+			echo "<th><img src='data:image/jpg;base64,".base64_encode($row2['meme'])."'/></th>";
+			echo "<th>".$row2['fecha']."</th>";	
+			echo "<th>".$row2['comentario']."</th>";	
+			echo "<th><a href='eliminar_admin.php?id_i=".$row2['id_imagen']."'> ELIMINAR <a/><th>";
+			echo "<th><a href='sube_meme_admin.php?id_i=".$row2['id_imagen']."'> Subir <a/><th>";
+			echo "</tr>";
+			}
+		?>
+		
+	</table>
+		
 	</body>
 </html>

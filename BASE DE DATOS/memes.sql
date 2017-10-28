@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-10-2017 a las 03:47:45
+-- Tiempo de generación: 28-10-2017 a las 04:27:29
 -- Versión del servidor: 10.1.26-MariaDB
 -- Versión de PHP: 7.1.8
 
@@ -44,6 +44,7 @@ CREATE TABLE `comentarios` (
 
 CREATE TABLE `imagenes` (
   `id_imagen` int(20) NOT NULL,
+  `aceptado` varchar(2) NOT NULL,
   `categoria` varchar(20) DEFAULT NULL,
   `meme` longblob,
   `fecha` date NOT NULL,
@@ -127,13 +128,13 @@ ALTER TABLE `comentarios`
 -- AUTO_INCREMENT de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
-  MODIFY `id_imagen` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id_imagen` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Restricciones para tablas volcadas

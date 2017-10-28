@@ -22,7 +22,7 @@ if (!$conn)
 	 }
  }
 //Hacer la sentencia de sql
-$sql = "INSERT INTO imagenes (categoria,meme,comentario,fecha) VALUES ('$categoria','$imagen','$comentario','$fecha')";
+$sql = "INSERT INTO imagenes (aceptado,categoria,meme,comentario,fecha) VALUES ('no','$categoria','$imagen','$comentario','$fecha')";
  //Ejecutar sentencia sql
  $ejecutar =mysqli_query($conn,$sql);
  if (!$ejecutar)

@@ -77,8 +77,8 @@ if ($_SESSION["error"]){
 //Muestra Imagen 
 include ("conexion.php");
 $categoria=$_POST['categoria'];
-$query = "select meme from imagenes where categoria='$categoria'";
-$query2 = "select categoria from images where categoria='$categoria'";
+$query = "select meme from imagenes where categoria='$categoria' and aceptado='si'";
+$query2 = "select categoria from images where categoria='$categoria' and aceptado='si'";
 $resultado2 = $conexion ->query($query2);
 $resultado = $conexion ->query($query);
 if (!$resultado)

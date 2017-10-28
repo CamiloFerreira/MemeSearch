@@ -114,8 +114,11 @@ $fecha =date("Y-m-d");
 			
 <?php
 
-$query = "select * from imagenes order by id_imagen desc;";
+$query = "select * from imagenes where aceptado='si' order  by id_imagen desc";
 $resultado = $conexion ->query($query);
+if (!$resultado){
+	echo " ";
+}else{
 while($row = $resultado -> fetch_assoc()){
 
 ?>
@@ -130,7 +133,8 @@ echo "<h3>".$row['comentario']."</h3><br>";
 <a href="comentarios.php?id=<?php echo $row['id_imagen'];?>" ><button>Comentar</button></a>
 <hr>
 <?php
-}
+}}
+				
 ?>
 			</section>
 		</body>
