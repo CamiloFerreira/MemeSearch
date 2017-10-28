@@ -6,7 +6,6 @@ date_default_timezone_set('America/Santiago');
 $fecha =date("Y-m-d");
 $hora = date("H:i:s");
 $mes =date("m");
-echo $mes
 
 ?>
 <!DOCTYPE html>
@@ -79,6 +78,14 @@ echo $mes
 				<li><a href="gal.php">Galería</a></li>
 				<li><a> Bienvenido <?php echo $_SESSION["usuario"]; ?> </a></li>
 			<?php
+				include ("conexion.php");
+				$id_u=$_SESSION["id_usuario"];
+				$sql="select tipo from usuarios where idusuario=$id_u";
+				$resultado1 = $conexion ->query($sql);
+				$row1= $resultado1 -> fetch_assoc();
+				if ($row1['tipo'] =="admin"){
+				 echo "<li><a href='admin.php'>Administrar</a></li>";
+				}
 				if (!$_SESSION["error"]){
 	  			 echo "<li><a id='cierra' href='cierra_sesion.php'> Cerrar Sesion </a></li>";
 				 }
@@ -89,7 +96,7 @@ echo $mes
 			<section >
 			<h2 style="text-align:left;">MEJOR MEMES Del Mes</h2>
 <?php
-include ("conexion.php");
+
 $query2= "SELECT meme,count(cantidad_v) FROM imagenes INNER JOIN puntuaciones on puntuaciones.id_imagen=imagenes.id_imagen where date_format(puntuaciones.fecha,'%m')='$mes' GROUP by meme order by cantidad_v desc limit 1";
 $resultado2 = $conexion ->query($query2);
 if (!$resultado2){

@@ -26,7 +26,8 @@ if (!$conn)
 //Hacer la sentencia de sql
 $sql2="SELECT correo  from usuarios where correo='$correo '";
 $sql3="SELECT usuario  from usuarios where usuario='$usuario'";
-$sql = "INSERT INTO `usuarios`( `usuario`, `nombre`, `apellido`, `clave`, `correo`,`pregunta`,`respuesta`) VALUES('$usuario','$nombre','$apellido','$clave','$correo','$pregunta','$respuesta')";
+$sql = "INSERT INTO `usuarios`( `tipo`,`usuario`, `nombre`, `apellido`, `clave`, `correo`,`pregunta`,`respuesta`) VALUES('normal','$usuario','$nombre','$apellido','$clave','$correo','$pregunta','$respuesta')";
+$sql4="SELECT idusuario from usuario where  correo='$correo' ";
 //Ejecutar sentencia sql
 $ejecutar2 =mysqli_query($conn,$sql2);
 $resultado=mysqli_fetch_array($ejecutar2);
@@ -49,7 +50,6 @@ else{
  }
  else
  {
-	 
 	header('Location: index.php');
  }
 

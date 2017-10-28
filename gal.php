@@ -2,7 +2,7 @@
 
 session_start();
 date_default_timezone_set('America/Santiago');
-
+include ("conexion.php");
 $fecha =date("Y-m-d");
 ?>
 <!DOCTYPE html>
@@ -88,8 +88,15 @@ $fecha =date("Y-m-d");
 				 {
 				  echo "<li><a  href='index_iniciado.php'> Página Principal</a></li>"; 
 				  echo "<li><a class='activa' href='gal.php'>Galería</a></li>";
-				  echo "<li><a>Bienvenido" .$_SESSION["usuario"]."</a></li>";	
-	  			  echo "<li><a  href='cierra_sesion.php'> Cerrar Sesion </a></li>";
+				  echo "<li><a>Bienvenido" .$_SESSION["usuario"]."</a></li>";	 
+				  $id_u=$_SESSION["id_usuario"];
+				  $sql="select tipo from usuarios where idusuario=$id_u";
+				  $resultado1 = $conexion ->query($sql);
+				  $row1= $resultado1 -> fetch_assoc();
+				  if ($row1['tipo'] =="admin"){
+				  echo "<li><a href='admin.php'>Administrar</a></li>";
+					}
+				  echo "<li><a  href='cierra_sesion.php'> Cerrar Sesion </a></li>";
 				 }
 				?>
 			</ul>
@@ -106,7 +113,7 @@ $fecha =date("Y-m-d");
 			<h2 style="text-align:left;">Ultimos Subidos</h2>
 			
 <?php
-include ("conexion.php");
+
 $query = "select * from imagenes order by id_imagen desc;";
 $resultado = $conexion ->query($query);
 while($row = $resultado -> fetch_assoc()){

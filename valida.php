@@ -41,7 +41,7 @@ if (!$ejecutar)
    if ($usuario == $usuarioC[0] and $clave == $claveC[0])
 	{
 		$ejecutar3 =mysqli_query($conn,$sql3);
-	   	$id_u= mysqli_fetch_array($ejecutar3);
+	   	$id_u= mysqli_fetch_array($ejecutar3);   
 	    $_SESSION["id_usuario"]=$id_u[0];
 	    $_SESSION["error"]=false;
 	    $_SESSION["iniciado"]=true;
