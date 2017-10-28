@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html >
 <html>
 	<head>
@@ -9,16 +12,44 @@ img{
 	
 }
 table {
+    font-family: arial, sans-serif;
     border-collapse: collapse;
+    width: 10%;
 }
 
-table, th, td {
-    border: 1px solid black;
-}	
-		
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+ul{
+	list-style: none;
+	float:left;
+}
+li{
+	background-color: aqua;		
+	}
+li:hover{
+	background-color: lawngreen;		
+}
+#bien{
+	font-size: 60px;
+	color: dodgerblue;
+	margin-left: 5%;	
+		}
 	</style>
 	</head>
 	<body>
+		<nav>
+		<ul>
+			<li><a href="index_iniciado.php"> Volver a Menu Principal</a></li>	
+		</ul>
+		</nav><br>
+		<h1 id="bien"><u> Bienvenido Admin <?php echo $_SESSION["usuario"]; ?> </u></h1>
 		<h1><u> Tabla Usuarios</u></h1>
 		<table border="2">
 			<tr>
@@ -32,7 +63,6 @@ table, th, td {
 				<th>respuesta</th>
 				<th> Operaciones</th>
 			</tr>
-			
 			<?php
 			include("conexion.php");
 			$query="select * from usuarios";
@@ -47,7 +77,8 @@ table, th, td {
 			echo "<th>".$row['clave']."</th>";	
 			echo "<th>".$row['pregunta']."</th>";	
 			echo "<th>".$row['respuesta']."</th>";	
-			echo "<th><a href='eliminar_admin.php?id=".$row['idusuario']."'> ELIMINAR <a/><th>";
+			$_SESSION['admi']=$row['idusuario'];
+			echo "<th><a href='eliminar_admin.php?accion=1&id=".$row['idusuario']."'> ELIMINAR <a/><th>";
 			echo "</tr>";
 			}
 			?>
@@ -74,10 +105,38 @@ table, th, td {
 			echo "<th>".$row2['categoria']."</th>";	
 			echo "<th><img src='data:image/jpg;base64,".base64_encode($row2['meme'])."'/></th>";
 			echo "<th>".$row2['fecha']."</th>";	
-			echo "<th>".$row2['comentario']."</th>";	
-			echo "<th><a href='eliminar_admin.php?id_i=".$row2['id_imagen']."'> ELIMINAR <a/><th>";
+			echo "<th>".$row2['comentario']."</th>";
+			$_SESSION['admi']=$row2['id_imagen'];
+			echo "<th><a href='eliminar_admin.php?accion=2&id=".$row2['id_imagen']."'> ELIMINAR <a/><th>";
 			echo "<th><a href='sube_meme_admin.php?id_i=".$row2['id_imagen']."'> Subir <a/><th>";
 			echo "</tr>";
+			}
+		?>
+		
+	</table>
+		<hr>
+	<h1><u> Tabla Comentarios </u></h1>
+	<table border="2">
+		<tr>
+			<th> id_Comentario</th>
+			<th> id_imagen</th>
+			<th> id_Usuario</th>
+			<th> comentario</th>
+			<th> Fecha</th>
+			<th colspan="3" > Operacion</th>
+		</tr>
+		<?php
+			$query3="select * from comentarios";
+			$resultado3= $conexion->query($query3);
+			while ($row3 = $resultado3 -> fetch_assoc()){
+			echo "<tr>";
+			echo "<th>".$row3['id_comentario']."</th>";	
+			echo "<th>".$row3['id_imagen']."</th>";
+			echo "<th>".$row3['idusuario']."</th>";	
+			echo "<th>".$row3['comentario']."</th>";
+			echo "<th>".$row3['fecha']."</th>";		
+			$_SESSION['admi']=$row3['id_comentario'];
+			echo "<th><a href='eliminar_admin.php?accion=3&id=".$row3['id_comentario']."'> ELIMINAR <a/><th>";
 			}
 		?>
 		

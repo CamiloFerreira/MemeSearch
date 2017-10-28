@@ -74,7 +74,7 @@ $mes =date("m");
 			</header>
 			<nav>
 			<ul>
-	  			<li><a class="activa" href="index.php"> Página Principal</a></li>
+	  			<li><a class="activa" href="index_iniciado.php"> Página Principal</a></li>
 				<li><a href="gal.php">Galería</a></li>
 				<li><a> Bienvenido <?php echo $_SESSION["usuario"]; ?> </a></li>
 			<?php
@@ -105,7 +105,7 @@ if (!$resultado2){
 else{
 while($row2 = $resultado2 -> fetch_assoc()){
 ?>
-<img id="img2" src="data:image/jpg;base64,<?php echo base64_encode($row2['meme']);?>"/><br>
+<img id="img1" src="data:image/jpg;base64,<?php echo base64_encode($row2['meme']);?>"/><br>
 <hr>
 <?php
 }				

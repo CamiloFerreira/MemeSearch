@@ -8,9 +8,6 @@ date_default_timezone_set('America/Santiago');
 $fecha =date("Y-m-d");
 $hora = date("H:i:s");
 $mes = date("m");
-echo $mes
-
-
 ?>
 <!DOCTYPE html>
 	<html lang="es">
@@ -95,7 +92,7 @@ if (!$resultado2){
 else{
 while($row2 = $resultado2 -> fetch_assoc()){
 ?>
-<img id="img2" src="data:image/jpg;base64,<?php echo base64_encode($row2['meme']);?>"/><br>
+<img id="img1" src="data:image/jpg;base64,<?php echo base64_encode($row2['meme']);?>"/><br>
 <hr>
 <?php
 }				
