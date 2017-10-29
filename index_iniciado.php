@@ -11,7 +11,6 @@ $mes =date("m");
 <!DOCTYPE html>
 	<html lang="es">
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet"> 
 	<link href="img\MS.png" rel="shortcut icon" type="image/png">
 	<head>

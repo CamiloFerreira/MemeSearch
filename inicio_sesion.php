@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 	<html lang="es">
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<head>
 	<link href="https://fonts.googleapis.com/css?family=Slackey" rel="stylesheet"> 
 	<link rel="stylesheet" type="text/css" href="css/main.css">
@@ -67,7 +66,7 @@
 			<ul>
 	  			<li><a  href="index.php"> Página Principal</a></li>
 	  			<li><a href="gal.php">Galería</a></li>
-	  			<li><a class="activa" href="inicio_seccion.html"> Inicio Sesión </a></li>
+	  			<li><a class="activa" href="inicio_sesion.php"> Inicio Sesión </a></li>
 			</ul>
 			</nav>
 			<section >
