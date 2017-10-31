@@ -52,6 +52,12 @@ if ($_SESSION["error"]){
 		height: 60%;
 		border: 1px solid black;
 	}
+    textarea{
+        margin-left:10%;
+        height: 100px;
+        width: 50%;
+        resize: none;
+        }   
  </style>
 	<title>Meme Search</title>
 	</head> 
@@ -65,13 +71,19 @@ if ($_SESSION["error"]){
 			 <p> Ingrese Categoria Del Meme:</p><br>
 			 <input type="text" REQUIRED name="categoria" >
 			 <p> Ingrese Comentario y/o Descripcion</p><br>
-			 <input type="text" REQUIRED name="comentario" >
+			 <textarea type="text" REQUIRED name="comentario" id="comentario" onclick="foco(comentario)" maxlength="100"  ></textarea>
 			 <p> Sube Archivo:</p>
 			 <input name="imagen" REQUIRED type="file" /><br>
 			 <input type="submit" value="Enviar">
 			</form>
         
 			</section >
+            
+    <script>
+       function foco(idElemento){
+            document.getElementById(idElemento).focus();
+       }     
+    </script>
 		
 		</body>
 	</html>

@@ -91,11 +91,15 @@ echo "<h5>".$row['comentario']."</h5><br>";
 }
 ?>
 			<form method="post" action="guarda_comentario.php?id=<?php echo $id_imagen; ?>" >
-			 <textarea rows="8" cols="50" name="comentario" id="comentario" maxlength="300" style="resize:none;" >
+			 <textarea rows="8" cols="50" name="comentario" id="comentario" onclick="foco(comentario)" maxlength="300" style="resize:none;" >
             </textarea><br>
 			<input type="submit" value="enviar">
 			</form>
 			</section >	
-		
+		 <script>
+       function foco(idElemento){
+            document.getElementById(idElemento).focus();
+       }     
+    </script>
 				
 		</body>

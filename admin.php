@@ -96,7 +96,7 @@ li:hover{
 			<th colspan="3" > Operacion</th>
 		</tr>
 		<?php
-			$query2="select * from imagenes";
+			$query2="select * from imagenes order by id_imagen desc";
 			$resultado2= $conexion->query($query2);
 			while ($row2 = $resultado2 -> fetch_assoc()){
 			echo "<tr>";
@@ -126,7 +126,7 @@ li:hover{
 			<th colspan="3" > Operacion</th>
 		</tr>
 		<?php
-			$query3="select * from comentarios";
+			$query3="select * from comentarios order by id_comentario desc";
 			$resultado3= $conexion->query($query3);
 			while ($row3 = $resultado3 -> fetch_assoc()){
 			echo "<tr>";

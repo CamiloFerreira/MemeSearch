@@ -4,7 +4,6 @@ date_default_timezone_set('America/Santiago');
 
 $fecha =date("Y-m-d");
 if ($_SESSION["error"]){
-	
 	echo"<script>alert('No Has Iniciado Sesion ....')</script>";
 	echo "<script>location.href='gal.php';</script>";
 }else{
@@ -42,7 +41,6 @@ $sql3 = "select * from puntuaciones where idusuario=$id_usuario order by fecha D
  $ejecutar5=mysqli_query($conn,$sql3);
  $respuesta=mysqli_fetch_array($ejecutar5);
  if ($respuesta[3] == $fecha){
-	 echo "es Igual";
 	 echo "<script> alert('Usted ya dio su like espere 24 hrs para volver a votar')</script>";
 	 echo "<script>location.href='gal.php';</script>";
  }else
