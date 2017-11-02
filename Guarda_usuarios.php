@@ -3,11 +3,11 @@
 $conn = mysqli_connect('localhost','root','');
 $respuesta=$_POST['respuesta'];
 $pregunta = $_REQUEST['pregunta'];
-
 $nombre=$_POST['nombre'];
 $apellido=$_POST['apellido'];
 $usuario=$_POST['usuario'];
 $clave=$_POST['clave'];
+$clave_en=md5($clave);
 $correo=$_POST['correo'];
 
 if (!$conn)
@@ -26,7 +26,7 @@ if (!$conn)
 //Hacer la sentencia de sql
 $sql2="SELECT correo  from usuarios where correo='$correo '";
 $sql3="SELECT usuario  from usuarios where usuario='$usuario'";
-$sql = "INSERT INTO `usuarios`( `tipo`,`usuario`, `nombre`, `apellido`, `clave`, `correo`,`pregunta`,`respuesta`) VALUES('normal','$usuario','$nombre','$apellido','$clave','$correo','$pregunta','$respuesta')";
+$sql = "INSERT INTO `usuarios`( `tipo`,`usuario`, `nombre`, `apellido`, `clave`, `correo`,`pregunta`,`respuesta`) VALUES('normal','$usuario','$nombre','$apellido','$clave_en','$correo','$pregunta','$respuesta')";
 $sql4="SELECT idusuario from usuario where  correo='$correo' ";
 //Ejecutar sentencia sql
 $ejecutar2 =mysqli_query($conn,$sql2);

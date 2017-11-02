@@ -1,10 +1,11 @@
 <?php
 session_start();
 $clave=$_POST['clave'];
+$clave_en=md5($clave);
 $nombre=$_GET['nombre'];
 $conn = mysqli_connect('localhost','root','');
 $base = mysqli_select_db($conn,'memes');
-$sql = "UPDATE usuarios SET clave='$clave' WHERE nombre='$nombre'";
+$sql = "UPDATE usuarios SET clave='$clave_en' WHERE nombre='$nombre'";
 //Ejecutar sentencia sql
 if (strlen($clave)>=8){
 	

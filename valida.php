@@ -1,7 +1,6 @@
 <?php
 
 #header('Location: /js/java.js');
-
 $conn = mysqli_connect('localhost','root','');
  if (!$conn)
  {
@@ -20,15 +19,13 @@ $conn = mysqli_connect('localhost','root','');
 //Secciones en PHP
 session_start();
 $clave=$_POST["clave"];
+$clave_en = md5($clave);
 $usuario=$_POST["usuario"];
 
 
-$sql = "SELECT usuario FROM usuarios WHERE usuario = '$usuario'";
-$sql2= "SELECT clave FROM usuarios WHERE clave ='$clave' " ;
-$sql3= "SELECT idusuario FROM usuarios WHERE usuario='$usuario' and clave='$clave'";
+$sql = "SELECT * FROM usuarios WHERE usuario = '$usuario'";
 
 $ejecutar =mysqli_query($conn,$sql);
-$ejecutar2  =mysqli_query($conn,$sql2);
 
 if (!$ejecutar)
  {
@@ -36,21 +33,27 @@ if (!$ejecutar)
  }
  else
  {
-   $usuarioC = mysqli_fetch_array($ejecutar);
-   $claveC= mysqli_fetch_array($ejecutar2);
-   if ($usuario == $usuarioC[0] and $clave == $claveC[0])
+   $datos = mysqli_fetch_array($ejecutar);
+   if ($usuario == $datos[2] )
 	{
-		$ejecutar3 =mysqli_query($conn,$sql3);
-	   	$id_u= mysqli_fetch_array($ejecutar3);   
-	    $_SESSION["id_usuario"]=$id_u[0];
+	   if ($clave_en == $datos[5]){ 
+	    $_SESSION["id_usuario"]=$datos[0];
 	    $_SESSION["error"]=false;
 	    $_SESSION["iniciado"]=true;
 	    $_SESSION["usuario"]=$usuario;
 	   	header('Location: index_iniciado.php');
+		   
 	} else
    {
+	   echo "<script> alert('Contraseña Incorrecta')</script>;";
+	  header('Location: inicio_sesion.php');
+   }
+ } else
+   {
+	   echo "<script> alert ('Usuario Incorrecta')</script>;";
 	   header('Location: inicio_sesion.php');
    }
+	
  }
- 
+
 ?>
