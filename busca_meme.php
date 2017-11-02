@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+include ("conexion.php");
 if ($_SESSION["error"]){
 	echo "<script> alert('debe iniciar sesion'); </script>";
 	echo "<script> alert('Redireccionando A inicio sesion '); </script>";
@@ -38,22 +39,27 @@ if ($_SESSION["error"]){
 	{
 		letter-spacing: 1px;
 		margin-right: 400px;
-		margin-left: 10%;
+		margin-left: 5%;
 		font-family: 'Bangers', cursive;	
 		font-size: 40px;
 	}		
 	input
 	{
-			padding-right: 30%;
 		    margin-left: 10%;
 			font-family: 'Bangers', cursive;
-			font-size: 50px;
+			font-size: 40px;
 	}
 	section
 	{
-		height: 50%;
+		height: 20%;
 		border: 1px solid black;
 	}
+	select{
+			margin-left: 20%;
+			width: 30%;
+			font-family: 'Bangers', cursive;
+			font-size: 50px;
+		}
 
 
 	</style>
@@ -65,9 +71,19 @@ if ($_SESSION["error"]){
 			</header>
 			<section >
 			<h2 style="text-align:left;">Buscador Memes</h2>
-			<p> Ingrese Categoria:</p><br>
+
+			
 			<form method="post" onsubmit="valor()" >
-			 <input type="text" name="categoria" id="categoria"  ><br>
+			<select name="categoria">
+			<option> Categorias</option>
+			<?php
+			$sql = "select * from imagenes";
+			$resultado3 = $conexion ->query($sql);
+			while ($columna = $resultado3 -> fetch_assoc()){
+				echo "<option value='".$columna['categoria']."'>".$columna['categoria']."</option>";
+			}
+			?>
+			</select>
 			<input type="submit" value="Buscar">
 			</form>
 			</section >
@@ -76,9 +92,7 @@ if ($_SESSION["error"]){
  <?php
 error_reporting (0); // Oculta Error de Categoria 
 //Muestra Imagen 
-include ("conexion.php");
 $categoria=$_REQUEST['categoria'];
-
 $query = "select meme from imagenes where categoria='$categoria' and aceptado='si'";
 $query2 = "select categoria from images where categoria='$categoria' and aceptado='si'";
 $resultado2 = $conexion ->query($query2);
