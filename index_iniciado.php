@@ -99,7 +99,7 @@ $mes =date("m");
 			<h2 style="text-align:left;">MEJOR MEMES Del Mes</h2>
 <?php
 
-$query2= "SELECT meme,count(cantidad_v) FROM imagenes INNER JOIN puntuaciones on puntuaciones.id_imagen=imagenes.id_imagen where date_format(puntuaciones.fecha,'%m')='$mes' GROUP by meme order by cantidad_v desc limit 1";
+$query2= "SELECT meme,sum(cantidad_v) FROM imagenes INNER JOIN puntuaciones on puntuaciones.id_imagen=imagenes.id_imagen where date_format(puntuaciones.fecha,'%m')='$mes' GROUP by meme order by suma_v desc limit 1";
 $resultado2 = $conexion ->query($query2);
 if (!$resultado2){
 	echo " ";
@@ -119,7 +119,7 @@ while($row2 = $resultado2 -> fetch_assoc()){
             <aside id="aside_1">
                 <h2>TOP 5 Del Dia</h2>
 <?php
-$query = "SELECT meme,count(cantidad_v) FROM imagenes INNER JOIN puntuaciones on puntuaciones.id_imagen=imagenes.id_imagen where puntuaciones.fecha='$fecha' GROUP by meme order by cantidad_v desc limit 5";
+$query = "SELECT meme,sum(cantidad_v) as suma_v FROM imagenes INNER JOIN puntuaciones on puntuaciones.id_imagen=imagenes.id_imagen where puntuaciones.fecha='$fecha' GROUP by meme order by suma_v desc limit 5";
 $resultado = $conexion ->query($query);
 if (!$resultado){
 	echo " ";
