@@ -5,7 +5,7 @@ if ($_SESSION["error"]){
 }
 $usuario =$_SESSION["usuario"];
 date_default_timezone_set('America/Santiago');
-
+include ("conexion.php");
 $fecha =date("Y-m-d");
 $hora = date("H:i:s");
 $mes =date("m");
@@ -17,6 +17,13 @@ $mes =date("m");
 	<link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet"> 
 	<link href="img\MS.png" rel="shortcut icon" type="image/png">
 	<head>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-7436245585493545",
+    enable_page_level_ads: true
+  });
+</script>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<style type="text/css">
 	@font-face
@@ -96,10 +103,10 @@ $mes =date("m");
 			</ul>
 			</nav>
 			<section >
-			<h2 style="text-align:left;">MEJOR MEMES Del Mes</h2>
+			<h2 style="text-align:left;">MEJORES MEMES Del Mes</h2>
 <?php
-
-$query2= "SELECT meme,sum(cantidad_v) FROM imagenes INNER JOIN puntuaciones on puntuaciones.id_imagen=imagenes.id_imagen where date_format(puntuaciones.fecha,'%m')='$mes' GROUP by meme order by suma_v desc limit 1";
+include ("conexion.php");
+$query2= "SELECT meme,sum(cantidad_v) as suma_vFROM imagenes INNER JOIN puntuaciones on puntuaciones.id_imagen=imagenes.id_imagen where date_format(puntuaciones.fecha,'%m')='$mes' GROUP by meme order by suma_v desc limit 1";
 $resultado2 = $conexion ->query($query2);
 if (!$resultado2){
 	echo " ";
@@ -119,7 +126,7 @@ while($row2 = $resultado2 -> fetch_assoc()){
             <aside id="aside_1">
                 <h2>TOP 5 Del Dia</h2>
 <?php
-$query = "SELECT meme,sum(cantidad_v) as suma_v FROM imagenes INNER JOIN puntuaciones on puntuaciones.id_imagen=imagenes.id_imagen where puntuaciones.fecha='$fecha' GROUP by meme order by suma_v desc limit 5";
+$query = "SELECT meme,sum(cantidad_v)as suma_v FROM imagenes INNER JOIN puntuaciones on puntuaciones.id_imagen=imagenes.id_imagen where puntuaciones.fecha='$fecha' GROUP by meme order by suma_v desc limit 5";
 $resultado = $conexion ->query($query);
 if (!$resultado){
 	echo " ";
@@ -128,7 +135,6 @@ else{
 while($row = $resultado -> fetch_assoc()){
 
 ?>
-
 <img id="img1" src="data:image/jpg;base64,<?php echo base64_encode($row['meme']);?>"/><br>
 <hr>
 <?php
