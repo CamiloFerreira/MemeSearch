@@ -110,6 +110,7 @@ if (!$resultado){
 }
 else{
 while($row = $resultado -> fetch_assoc()){
+
 ?>
 <img id="img1" src="data:image/jpg;base64,<?php echo base64_encode($row['meme']);?>"/><br>
 <hr>

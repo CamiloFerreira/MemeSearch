@@ -1,5 +1,8 @@
 <?php
 session_start();
+if ($_SESSION["error"]){
+	header('Location: index.php');
+}
 ?>
 <!DOCTYPE html >
 <html>

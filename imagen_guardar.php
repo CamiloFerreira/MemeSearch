@@ -1,7 +1,8 @@
 <?php 
+session_start();
 	//Conectarse con el servidor
- $conn = mysqli_connect('localhost','root','');
-
+$conn = mysqli_connect('localhost','root','');
+$id =$_SESSION["id_usuario"];
 $categoria=$_POST['categoria'];
 $comentario=$_POST['comentario'];
 $imagen =addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
@@ -22,7 +23,7 @@ if (!$conn)
 	 }
  }
 //Hacer la sentencia de sql
-$sql = "INSERT INTO imagenes (aceptado,categoria,meme,comentario,fecha) VALUES ('no','$categoria','$imagen','$comentario','$fecha')";
+$sql = "INSERT INTO imagenes (idusuario,aceptado,categoria,meme,comentario,fecha) VALUES ('$id','no','$categoria','$imagen','$comentario','$fecha')";
  //Ejecutar sentencia sql
  $ejecutar =mysqli_query($conn,$sql);
  if (!$ejecutar)

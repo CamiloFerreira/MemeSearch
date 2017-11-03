@@ -1,5 +1,8 @@
 <?php 
 session_start();
+if ($_SESSION["error"]){
+	header('Location: index.php');
+}
 $usuario =$_SESSION["usuario"];
 date_default_timezone_set('America/Santiago');
 
@@ -123,7 +126,9 @@ if (!$resultado){
 }
 else{
 while($row = $resultado -> fetch_assoc()){
+
 ?>
+
 <img id="img1" src="data:image/jpg;base64,<?php echo base64_encode($row['meme']);?>"/><br>
 <hr>
 <?php

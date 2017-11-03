@@ -45,13 +45,13 @@ if (!$ejecutar)
 		   
 	} else
    {
-	   echo "<script> alert('Contraseña Incorrecta')</script>;";
-	  header('Location: inicio_sesion.php');
+	 echo "<script>alert('Clave Incorrecta ')</script>";
+	 echo "<script>location.href='inicio_sesion.php';</script>";
    }
  } else
    {
-	   echo "<script> alert ('Usuario Incorrecta')</script>;";
-	   header('Location: inicio_sesion.php');
+	 echo "<script>alert('Usuario Incorrecto y/o No existe ')</script>";
+	 echo "<script>location.href='inicio_sesion.php';</script>";
    }
 	
  }

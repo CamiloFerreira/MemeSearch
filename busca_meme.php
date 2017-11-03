@@ -2,6 +2,7 @@
 
 session_start();
 include ("conexion.php");
+
 if ($_SESSION["error"]){
 	echo "<script> alert('debe iniciar sesion'); </script>";
 	echo "<script> alert('Redireccionando A inicio sesion '); </script>";
