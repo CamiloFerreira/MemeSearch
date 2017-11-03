@@ -61,7 +61,6 @@ li:hover{
 				<th>usuario</th>
 				<th>nombre</th>
 				<th>apellido</th>
-				<th>clave</th>
 				<th>pregunta</th>
 				<th>respuesta</th>
 				<th> Operaciones</th>
@@ -77,7 +76,6 @@ li:hover{
 			echo "<th>".$row['usuario']."</th>";	
 			echo "<th>".$row['nombre']."</th>";	
 			echo "<th>".$row['apellido']."</th>";	
-			echo "<th>".$row['clave']."</th>";	
 			echo "<th>".$row['pregunta']."</th>";	
 			echo "<th>".$row['respuesta']."</th>";	
 			$_SESSION['admi']=$row['idusuario'];
